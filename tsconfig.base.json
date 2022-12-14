@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jbm-creator-network/creators": ["libs/creators/src/index.ts"]
+      "@jbm-creator-network/creators": ["libs/creators/src/index.ts"],
+      "@jbm-creator-network/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

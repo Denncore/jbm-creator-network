@@ -20,6 +20,7 @@ module.exports = {
       backgroundColor: {
         skin: {
           fill: 'var(--color-bg-base)',
+          backdrop: 'var(--color-bg-backdrop)',
           'button-base': 'var(--color-button-base)',
           'button-border': 'var(--color-button-border)'
         }

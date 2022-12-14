@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
-
+body {
+    font-family: 'Poppins', sans-serif;
+}
 @layer base {
     :root {
         --color-text-base: #FFFFFF;
@@ -12,6 +14,7 @@
         --color-text-highlight: #52FF98;
         
         --color-bg-base: #141322;
+        --color-bg-backdrop: #20667433;
         --color-button-base: #4FFF9B;
         --color-button-border: #4FFF9B;
     }
