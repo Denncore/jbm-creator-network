@@ -8,7 +8,23 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
-    extend: {},
+    extend: {
+      textColor: {
+        skin: {
+          base: 'var(--color-text-base)',
+          muted: 'var(--color-text-muted)',
+          inverted: 'var(--color-text-inverted)',
+          highlight: 'var(--color-text-highlight)'
+        }
+      },
+      backgroundColor: {
+        skin: {
+          fill: 'var(--color-bg-base)',
+          'button-base': 'var(--color-button-base)',
+          'button-border': 'var(--color-button-border)'
+        }
+      }
+    }
   },
   plugins: [],
 };

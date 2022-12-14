@@ -3,3 +3,16 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+
+@layer base {
+    :root {
+        --color-text-base: #FFFFFF;
+        --color-text-muted: #20667433;
+        --color-text-inverted: #141322;
+        --color-text-highlight: #52FF98;
+        
+        --color-bg-base: #141322;
+        --color-button-base: #4FFF9B;
+        --color-button-border: #4FFF9B;
+    }
+}

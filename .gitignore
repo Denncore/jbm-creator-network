@@ -7,6 +7,9 @@ tmp
 
 # dependencies
 node_modules
+.yarnrc.yml
+.yarn
+
 
 # IDEs and editors
 /.idea
