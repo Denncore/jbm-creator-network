@@ -9,6 +9,7 @@ tmp
 node_modules
 .yarnrc.yml
 .yarn
+.pnp**
 
 
 # IDEs and editors
