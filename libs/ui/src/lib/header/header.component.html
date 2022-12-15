@@ -1,10 +1,19 @@
-<div class="flex align-middle justify-between bg-skin-backdrop w-screen h-20 pl-36 pr-24">
-    <h1 class="text-lg justify-start text-skin-base my-auto">JBM<span class="text-skin-base">CreatorNetwork</span></h1>
-    <div class="flex text-base justify-self-end justify-between space-x-10 text-skin-base my-auto">
-        <a>HOME</a>
-        <a>CREATOR</a>
-        <a>LEISTUNGEN</a>
-        <a>TEAM</a>
-        <a>KONTAKT</a>
+<div
+  class="flex align-middle bg-skin-backdrop w-screen h-20 pl-36 pr-11"
+>
+  <img src="/assets/logo-header.svg" class="justify-start my-auto w-52" />
+  <div class="flex space-x-[4vw] ml-auto">
+    <div
+      class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto"
+    >
+      <a *ngFor="let entry of headerEntries">{{ entry.name }}</a>
     </div>
+    <div class="flex w-36 h-7 my-auto">
+      <input
+        name="creatorSearch"
+        class="w-full bg-transparent border-b-2 focus:outline-none text-skin-base"
+      />
+      <img class="w-[1rem] self-end ml-4" src="assets/lupe.svg"/>
+    </div>
+  </div>
 </div>

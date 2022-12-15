@@ -1,8 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export interface HeaderEntry {
+  name: string;
+  link: string;
+}
 
 @Component({
   selector: 'jbm-creator-network-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+
+  @Input() headerEntries: HeaderEntry[] = [];
+
+}

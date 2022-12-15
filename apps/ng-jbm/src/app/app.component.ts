@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HeaderEntry } from 'libs/ui/src/lib/header/header.component';
 
 @Component({
   selector: 'jbm-creator-network-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-jbm';
+  headerEntries: HeaderEntry[] = [
+    { name: 'HOME', link: '' },
+    { name: 'CREATOR', link: '' },
+    { name: 'LEISTUNGEN', link: '' },
+    { name: 'TEAM', link: '' },
+    { name: 'KONTAKT', link: '' },
+  ];
 }
