@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { UiModule } from '@jbm-creator-network/ui';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { UiModule } from '@jbm-creator-network/ui';
       }
     ),
     EffectsModule.forRoot([]),
-    UiModule
+    UiModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

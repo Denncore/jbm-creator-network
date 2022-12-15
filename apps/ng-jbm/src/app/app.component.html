@@ -4,13 +4,10 @@
     class="absolute object-fill -z-50"
     src="/assets/02_complete-background-landingpage.svg"
   />
-  <jbm-creator-network-header [headerEntries]="headerEntries"></jbm-creator-network-header>
-  	<div class="grid-cols-1 pl-[8vw] pt-[7vw]">
-      <img src="/assets/logo-landingpage.svg" alt="logo-landing-page" class="w-[35vw] pb-[2.5vw]"/>
-      <img src="/assets/beyond_the_limits.svg" alt="logo-landing-page" class="w-[53vw] pb-[2.5vw]"/>
-      <p class="text-skin-base text-[1.45vw]">Wir sind ein Netzwerk, das aus einem Start-Up hervorgeht.<br>
-        Zusammen wachsen wir mit unseren Creator für einen<br>
-        langfristigen Erfolg</p>
-    </div>
+  <jbm-creator-network-header
+    [headerEntries]="headerEntries"
+  ></jbm-creator-network-header>
+  
+  <router-outlet></router-outlet>
 
 </div>
