@@ -9,27 +9,31 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize: {
+        'base-vw': '1.40vw',
+        'heading-vw': '2vw',
+      },
       textColor: {
         skin: {
           base: 'var(--color-text-base)',
           muted: 'var(--color-text-muted)',
           inverted: 'var(--color-text-inverted)',
-          highlight: 'var(--color-text-highlight)'
-        }
+          highlight: 'var(--color-text-highlight)',
+        },
       },
       backgroundColor: {
         skin: {
           fill: 'var(--color-bg-base)',
           backdrop: 'var(--color-bg-backdrop)',
           'button-base': 'var(--color-button-base)',
-        }
+        },
       },
       borderColor: {
         skin: {
-          'button-base': 'var(--color-button-border)'
-        }
-      }
-    }
+          'button-base': 'var(--color-button-border)',
+        },
+      },
+    },
   },
   plugins: [],
 };

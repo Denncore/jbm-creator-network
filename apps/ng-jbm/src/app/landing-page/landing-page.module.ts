@@ -6,6 +6,7 @@ import { TitleComponent } from './title/title.component';
 import { CreatorOverviewComponent } from './creator-overview/creator-overview.component';
 import { UiModule } from '@jbm-creator-network/ui';
 import { ServicesOverviewComponent } from './services-overview/services-overview.component';
+import { BrandsOverviewComponent } from './brands-overview/brands-overview.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ServicesOverviewComponent } from './services-overview/services-overview
     TitleComponent,
     CreatorOverviewComponent,
     ServicesOverviewComponent,
+    BrandsOverviewComponent,
   ],
   imports: [CommonModule, LandingPageRoutingModule, UiModule],
 })
