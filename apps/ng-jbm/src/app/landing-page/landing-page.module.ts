@@ -5,19 +5,15 @@ import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { TitleComponent } from './title/title.component';
 import { CreatorOverviewComponent } from './creator-overview/creator-overview.component';
 import { UiModule } from '@jbm-creator-network/ui';
-
-
+import { ServicesOverviewComponent } from './services-overview/services-overview.component';
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     TitleComponent,
-    CreatorOverviewComponent
+    CreatorOverviewComponent,
+    ServicesOverviewComponent,
   ],
-  imports: [
-    CommonModule,
-    LandingPageRoutingModule,
-    UiModule
-  ]
+  imports: [CommonModule, LandingPageRoutingModule, UiModule],
 })
-export class LandingPageModule { }
+export class LandingPageModule {}

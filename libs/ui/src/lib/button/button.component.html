@@ -1,9 +1,10 @@
 <button
-  class="relative w-full h-full rounded-full bg-skin-button-base text-skin-inverted shadow-md transition duration-200 hover:scale-105"
+  [ngClass]="transparent ? 'border-skin-button-base border-2 text-skin-highlight': 'bg-skin-button-base'"
+  class="relative w-full h-full rounded-full text-skin-inverted shadow-md transition duration-200 hover:scale-105"
 >
-  All Creator
+  <ng-content></ng-content>
   <img
     class="absolute right-[4%] top-[35%] w-[0.7vw] ml-auto self-center"
-    src="/assets/icons/arrow_inverted_button.svg"
+    [src]="transparent ? '/assets/icons/arrow_highlight_button.svg' : '/assets/icons/arrow_inverted_button.svg'"
   />
 </button>

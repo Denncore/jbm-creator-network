@@ -22,7 +22,11 @@ module.exports = {
           fill: 'var(--color-bg-base)',
           backdrop: 'var(--color-bg-backdrop)',
           'button-base': 'var(--color-button-base)',
-          'button-border': 'var(--color-button-border)'
+        }
+      },
+      borderColor: {
+        skin: {
+          'button-base': 'var(--color-button-border)'
         }
       }
     }
