@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class ButtonComponent {
 
   @Input() transparent = false;
+  @Input() withoutIcon = false;
+  @Input() disabled = false;
 }

@@ -7,6 +7,8 @@ import { CreatorOverviewComponent } from './creator-overview/creator-overview.co
 import { UiModule } from '@jbm-creator-network/ui';
 import { ServicesOverviewComponent } from './services-overview/services-overview.component';
 import { BrandsOverviewComponent } from './brands-overview/brands-overview.component';
+import { ContactOverviewComponent } from './contact-overview/contact-overview.component';
+import { CreatorsModule } from '@jbm-creator-network/creators';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { BrandsOverviewComponent } from './brands-overview/brands-overview.compo
     CreatorOverviewComponent,
     ServicesOverviewComponent,
     BrandsOverviewComponent,
+    ContactOverviewComponent,
   ],
-  imports: [CommonModule, LandingPageRoutingModule, UiModule],
+  imports: [CommonModule, LandingPageRoutingModule, UiModule, CreatorsModule],
 })
 export class LandingPageModule {}

@@ -1,0 +1,52 @@
+<div class="flex flex-col space-y-[2vw] text-skin-base pt-[8.5vw] w-full h-full">
+    <h1 class="text-heading-vw font-bold">Kontakt</h1>
+    <p class="text-base-vw p-0">
+        Gemeinsam schaffenm wir mehr! <br />
+        Schreibe uns geren und wir starten <br />
+        zusammen etwas großartiges! <br />
+    </p>
+    <form [formGroup]="contactForm" class="flex flex-col text-[1vw]">
+        <input [ngClass]="{ 'outline-red-600 outline': isControlInValid('name') }"
+            class="w-full h-[2vw] rounded-full text-skin-inverted px-[1vw] mt-[1vw]" type="text" placeholder="Dein Name"
+            formControlName="name" />
+
+        <input [ngClass]="{ 'outline-red-600 outline': isControlInValid('eMail') }"
+            class="w-full h-[2vw] rounded-full text-skin-inverted px-[1vw] mt-[1vw]" type="text" placeholder="eMail"
+            formControlName="eMail" />
+
+        <div class="mt-[1.5vw]">
+            <div class="pl-[0.6vw] pb-[0.5vw]">
+                <div class="flex">
+                    <input #checkbox [ngClass]="{'outline-red-600 outline': isControlInValid('creatorDirectContact')}"
+                        class="jbm-checkbox" type="checkbox" formControlName="creatorDirectContact"
+                        id="creatorDirectContact" />
+
+                    <label class="jbm-checkbox-label" for="creatorDirectContact">
+                        Direkte Creator Anfrage
+                    </label>
+                </div>
+            </div>
+            <input [ngClass]="{
+          'outline-red-600 outline': isControlInValid('creatorName')
+        }" class="w-full h-[2vw] rounded-full text-skin-inverted px-[1vw]" type="text" placeholder="Name des Creator"
+                formControlName="creatorName" />
+        </div>
+
+        <textarea [ngClass]="{ 'outline-red-600 outline': isControlInValid('message') }"
+            class="rounded-3xl text-skin-inverted px-[1vw] py-[0.5vw] resize-none mt-[1vw]" rows="10"
+            placeholder="Deine Nachricht an uns" formControlName="message"></textarea>
+
+        <div class="pl-[0.6vw] pb-[0.5vw] mt-[1vw]">
+            <div class="flex">
+                <input #checkbox [ngClass]="{'outline-red-600 outline': isControlInValid('tosAccepted')}"
+                    class="jbm-checkbox" type="checkbox" formControlName="tosAccepted" id="tosAccepted" />
+                <label class="jbm-checkbox-label" for="tosAccepted">
+                    Hiermit erkläre ich mich mit den allgemeinen Geschäftsbedingungen
+                    einverstanden
+                </label>
+            </div>
+        </div>
+        <jbm-creator-network-button class="mt-[1vw]" [withoutIcon]="true"
+            [disabled]="!contactForm.valid">Senden</jbm-creator-network-button>
+    </form>
+</div>

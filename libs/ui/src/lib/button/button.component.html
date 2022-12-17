@@ -1,10 +1,8 @@
-<button
+<button [disabled]="disabled"
   [ngClass]="transparent ? 'border-skin-button-base border-2 text-skin-highlight': 'bg-skin-button-base text-skin-inverted'"
-  class="relative w-full h-full rounded-full shadow-md transition duration-200 hover:scale-105"
->
+  class="disabled:cursor-not-allowed disabled:bg-skin-backdrop disabled:text-skin-muted
+   min-h-[2.3vw] relative w-full h-full rounded-full shadow-md transition duration-200 hover:scale-105 text-[0.9vw]">
   <ng-content></ng-content>
-  <img
-    class="absolute right-[4%] top-[35%] w-[0.7vw] ml-auto self-center"
-    [src]="transparent ? '/assets/icons/arrow_highlight_button.svg' : '/assets/icons/arrow_inverted_button.svg'"
-  />
+  <img *ngIf="!withoutIcon" class="absolute right-[4%] top-[35%] w-[0.7vw] ml-auto self-center"
+    [src]="transparent ? '/assets/icons/arrow_highlight_button.svg' : '/assets/icons/arrow_inverted_button.svg'" />
 </button>

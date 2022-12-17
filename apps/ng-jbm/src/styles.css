@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
+@layer base {
+    .jbm-checkbox {
+        @apply appearance-none w-[0.9vw] aspect-square border-2 border-white bg-transparent checked:bg-skin-button-base checked:border-skin-button-base transition duration-200 self-center mr-2 cursor-pointer;
+    }
+    .jbm-checkbox-label {
+        @apply inline-block text-skin-base text-[0.6vw] self-center cursor-pointer select-none pt-[0.1vw];
+    }
+  }
+
 body {
     font-family: 'Poppins', sans-serif;
 }
