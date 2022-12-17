@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@jbm-creator-network/creators": ["libs/creators/src/index.ts"],
+      "@jbm-creator-network/environment": ["libs/environment/src/index.ts"],
       "@jbm-creator-network/ui": ["libs/ui/src/index.ts"]
     }
   },

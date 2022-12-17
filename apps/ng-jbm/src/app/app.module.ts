@@ -6,11 +6,15 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { UiModule } from '@jbm-creator-network/ui';
 import { AppRoutingModule } from './app-routing.module';
+import { ENVIRONMENT } from '@jbm-creator-network/environment';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     StoreModule.forRoot(
       {},
       {
@@ -23,9 +27,12 @@ import { AppRoutingModule } from './app-routing.module';
     ),
     EffectsModule.forRoot([]),
     UiModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    // Let angular know which value to use when injecting the token at runtime.
+    { provide: ENVIRONMENT, useValue: environment },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

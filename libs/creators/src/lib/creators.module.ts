@@ -7,10 +7,13 @@ import { CreatorsEffects } from './+state/creators/creators.effects';
 import { CreatorContactComponent } from './creator-contact/creator-contact.component';
 import { UiModule } from '@jbm-creator-network/ui';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgHcaptchaModule } from 'ng-hcaptcha';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     UiModule,
     StoreModule.forFeature(
@@ -18,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       fromCreators.creatorsReducer
     ),
     EffectsModule.forFeature([CreatorsEffects]),
+    NgHcaptchaModule.forRoot(),
   ],
   declarations: [CreatorContactComponent],
   exports: [CreatorContactComponent],

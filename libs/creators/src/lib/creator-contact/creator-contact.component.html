@@ -46,7 +46,11 @@
                 </label>
             </div>
         </div>
-        <jbm-creator-network-button class="mt-[1vw]" [withoutIcon]="true"
+
+        <ng-hcaptcha class="mt-[2vw]" [languageCode]="env.hCaptcha.languageCode ? env.hCaptcha.languageCode : 'de'"
+            [siteKey]="env.hCaptcha.siteKey" formControlName="captcha"></ng-hcaptcha>
+
+        <jbm-creator-network-button class="mt-[2vw]" [withoutIcon]="true"
             [disabled]="!contactForm.valid">Senden</jbm-creator-network-button>
     </form>
 </div>

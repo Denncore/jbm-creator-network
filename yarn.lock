@@ -8091,6 +8091,7 @@ __metadata:
     jest: 28.1.1
     jest-environment-jsdom: 28.1.1
     jest-preset-angular: ~12.2.3
+    ng-hcaptcha: ^2.0.0
     nx: 15.3.3
     postcss: ^8.4.5
     prettier: ^2.6.2
@@ -9626,6 +9627,19 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: deac9f8d00eda7b2e5cd1b2549e26e10a0faa70adaa6fdadca701cc55f49ee9018e427f424bac0c790b7c7e2d3068db97f3093f1093975f2acb8f8818b936ed9
+  languageName: node
+  linkType: hard
+
+"ng-hcaptcha@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "ng-hcaptcha@npm:2.0.0"
+  dependencies:
+    tslib: ^2.0.0
+  peerDependencies:
+    "@angular/common": ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+    "@angular/core": ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+    "@angular/forms": ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0
+  checksum: f089429ccc1f30fa7f829aaca0f275b63e48530c54a257dbd85af00274bcc6c75dd2f8fa918eba3cb4b26d087511e3e0ae31373ec5360b8a39ef7bea15526215
   languageName: node
   linkType: hard
 
