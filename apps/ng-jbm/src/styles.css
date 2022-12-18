@@ -4,27 +4,28 @@
 
 /* You can add global styles to this file, and also import other style files */
 @layer base {
-    .jbm-checkbox {
-        @apply appearance-none w-[0.9vw] aspect-square border-2 border-white bg-transparent checked:bg-skin-button-base checked:border-skin-button-base transition duration-200 self-center mr-2 cursor-pointer;
-    }
-    .jbm-checkbox-label {
-        @apply inline-block text-skin-base text-[0.6vw] self-center cursor-pointer select-none pt-[0.1vw];
-    }
+  .jbm-checkbox {
+    @apply appearance-none w-[0.9rem] md:w-[0.9vw] aspect-square border-2 border-white bg-transparent checked:bg-skin-button-base checked:border-skin-button-base transition duration-200 self-center mr-2 cursor-pointer;
   }
+  .jbm-checkbox-label {
+    @apply inline-block text-skin-base text-[0.7rem] md:text-[0.6vw] self-center cursor-pointer select-none md:pt-[0.1vw];
+  }
+}
 
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 @layer base {
-    :root {
-        --color-text-base: #FFFFFF;
-        --color-text-muted: #20667433;
-        --color-text-inverted: #141322;
-        --color-text-highlight: #52FF98;
-        
-        --color-bg-base: #141322;
-        --color-bg-backdrop: #20667433;
-        --color-button-base: #4FFF9B;
-        --color-button-border: #4FFF9B;
-    }
+  :root {
+    --color-text-base: #ffffff;
+    --color-text-muted: #20667433;
+    --color-text-inverted: #141322;
+    --color-text-highlight: #52ff98;
+
+    --color-bg-base: #141322;
+    --color-bg-backdrop: #20667433;
+    --color-bg-mobile-menu: #141322f2;
+    --color-button-base: #4fff9b;
+    --color-button-border: #4fff9b;
+  }
 }

@@ -1,38 +1,23 @@
 <div class="grid grid-cols-1 space-y-[4vw] pt-[6vw]">
-  <h1 class="text-heading-vw font-bold">Creator</h1>
-  <p class="text-base-vw p-0">
+  <h1 class="text-heading-sm md:text-heading-vw md:font-bold">Creator</h1>
+  <p class="text-base-sm md:text-base-vw  p-0">
     Unser Netzwerk besteht aus angehenden Streamern mit viel Leidenschaft.<br />
     Sei auch du ein Teil unserer einzigartigen Gemeinschaft!
   </p>
-  <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-10  w-[80vw]">
-    <jbm-creator-network-card
-      [image]="'/assets/test-profil.png'"
-      [name]="'Denncore'"
-      [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"
-    ></jbm-creator-network-card>
-    <jbm-creator-network-card
-      [image]="'/assets/test-profil.png'"
-      [name]="'Denncore'"
-      [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"
-    ></jbm-creator-network-card>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:w-[80vw]">
+    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
+      [socialCounts]="socialCounts"></jbm-creator-network-card>
 
-    <jbm-creator-network-card
-      [image]="'/assets/test-profil.png'"
-      [name]="'Denncore'"
-      [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"
-    ></jbm-creator-network-card>
+    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
+      [socialCounts]="socialCounts"></jbm-creator-network-card>
 
-    <jbm-creator-network-card
-      [image]="'/assets/test-profil.png'"
-      [name]="'Denncore'"
-      [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"
-    ></jbm-creator-network-card>
+    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
+      [socialCounts]="socialCounts"></jbm-creator-network-card>
+
+    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
+      [socialCounts]="socialCounts"></jbm-creator-network-card>
   </div>
-  <div class="w-[39vw] h-[2.3vw]">
+  <div class="md:w-[39vw] md:h-[2.3vw] pt-7">
     <jbm-creator-network-button>Alle Creator</jbm-creator-network-button>
   </div>
 </div>

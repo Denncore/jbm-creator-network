@@ -1,19 +1,42 @@
+<div [ngClass]="{ 'invisible -top-[14vw] opacity-0': !showMobileMenu, 'top-0 opacity-1': showMobileMenu}"
+  class="fixed inset-0 w-screen h-screen mt-[14vw] md:mt-[6vw] hover:top-0 duration-500 ease-out transition-all z-50 transition-y-full"
+  (click)="showMobileMenu = false">
+  <div class="w-full h-[34rem] md:h-[45rem] max-h-[100vh] rounded-b-3xl bg-skin-mobile-menu px-[8.2vw] py-[5vw]"
+    (click)="$event.stopPropagation()">
+    <div class="flex flex-col text-[1.5rem] justify-between text-skin-base my-auto h-full select-none">
+      <div class="flex flex-col">
+        <a *ngFor="let entry of headerEntries"
+          class="mb-8 cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">{{ entry.name
+          }}</a>
+      </div>
+      <div class="flex flex-col mb-5">
+        <a
+          class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
+        <a
+          class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Datenschutz</a>
+      </div>
+      <div>
+        <img src="/assets/socials/twitch.svg" class="w-8 mb-5 cursor-pointer transition duration-200 hover:scale-105" />
+        <img src="/assets/socials/instagram.svg" class="w-8 cursor-pointer transition duration-200 hover:scale-105" />
+      </div>
+    </div>
+  </div>
+</div>
+
 <div
-  class="absolute flex align-middle bg-skin-backdrop w-screen h-[3.3vw] pl-[8vw] pr-[2vw]"
->
+  class="fixed md:absolute flex align-middle bg-skin-backdrop w-screen h-[14vw] md:h-[6vw] md:h-[3.3vw] md:min-h-[4rem] pl-[3vw] md:pl-[8vw] pr-[4vw]">
+  <img [src]="showMobileMenu ? '/assets/mobile/mobile_menue-icon.svg' : '/assets/mobile/mobile_menue-icon.svg'"
+    class="md:hidden justify-start my-auto w-5 mr-[2.5vw] cursor-pointer" (click)="showMobileMenu = !showMobileMenu" />
   <img src="/assets/logo-header.svg" class="justify-start my-auto w-52" />
-  <div class="flex space-x-[4vw] ml-auto">
-    <div
-      class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto"
-    >
+  <img class="md:hidden w-[1rem] ml-auto mr" src="assets/lupe.svg" />
+
+  <div class="hidden md:flex space-x-[4vw] ml-auto ">
+    <div class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto">
       <a *ngFor="let entry of headerEntries">{{ entry.name }}</a>
     </div>
     <div class="flex w-36 h-7 my-auto">
-      <input
-        name="creatorSearch"
-        class="w-full bg-transparent border-b-2 focus:outline-none text-skin-base"
-      />
-      <img class="w-[1rem] self-end ml-4" src="assets/lupe.svg"/>
+      <input name="creatorSearch" class="w-full bg-transparent border-b-2 focus:outline-none text-skin-base" />
+      <img class="w-[1rem] self-end ml-4" src="assets/lupe.svg" />
     </div>
   </div>
 </div>

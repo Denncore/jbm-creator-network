@@ -1,17 +1,19 @@
-<div class="flex w-full h-ful max-w-[46vw] min-h-[20vw] rounded-3xl bg-skin-fill p-[5%] space-x-[7%]
- shadow-black shadow-md">
-    <div class="w-[30%] h-full">
+<div class="flex w-full h-full max-h-[15rem] md:max-w-[46vw] md:min-h-[20vw] rounded-xl bg-skin-fill p-[5%] space-x-[7%]
+ shadow-black shadow-md justify-around">
+    <div class="w-[25%] md:w-[30%] h-full">
         <div class="rounded-full bg-white h-auto aspect-square">
-            <img class="rounded-full w-full" [src]="image"/>
+            <img class="rounded-full w-full" [src]="image" />
         </div>
     </div>
     <div class="flex flex-col">
-        <div class="text-skin-base text-[1.50vw]">{{name}}</div>
-        <div class="text-skin-highlight text-[1.50vw] mt-[2%]">{{tag}}</div>
+        <div class="text-skin-base md:text-[1.50vw]">{{name}}</div>
+        <div class="text-skin-highlight md:text-[1.50vw] mt-[2%]">{{tag}}</div>
         <div class="grid grid-cols-2 mt-[10%] gap-x-[1.6vw] gap-y-[1vw]">
-            <div class="flex space-x-[2vw]" *ngFor="let socialCount of socialCounts">
-                <img class="w-[1.3vw] h-[1.9vw] self-start" [src]="'/assets/socials/' + socialCount.social + '.svg'"/>
-                <span class="text-skin-base text-[1.40vw] self-start">{{ socialCount.count | socialCount }}</span>
+            <div class="flex space-x-[0.5rem] md:space-x-[2vw]" *ngFor="let socialCount of socialCounts">
+                <img class="w-[1rem] h-[1.3rem] md:w-[1.3vw] md:h-[1.9vw] self-start"
+                    [src]="'/assets/socials/' + socialCount.social + '.svg'" />
+                <span class="text-skin-base md:text-[1.40vw] self-start">{{ socialCount.count |
+                    socialCount }}</span>
             </div>
         </div>
     </div>

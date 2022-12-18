@@ -1,4 +1,5 @@
 const { createGlobPatternsForDependencies } = require('@nrwl/angular/tailwind');
+const { url } = require('inspector');
 const { join } = require('path');
 
 /** @type {import('tailwindcss').Config} */
@@ -9,9 +10,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        web: "url('/assets/02_complete-background-landingpage.svg')",
+        mobile: "url('/assets/mobile/mobile_all-graphics_landingpage.svg')",
+      },
       fontSize: {
         'base-vw': '1.40vw',
+        'base-sm': '0.9rem',
+        'base-md': '2vw',
         'heading-vw': '2vw',
+        'heading-sm': '1.5rem',
+        'heading-md': '2vw',
       },
       textColor: {
         skin: {
@@ -25,6 +34,7 @@ module.exports = {
         skin: {
           fill: 'var(--color-bg-base)',
           backdrop: 'var(--color-bg-backdrop)',
+          'mobile-menu': 'var(--color-bg-mobile-menu)',
           'button-base': 'var(--color-button-base)',
         },
       },
