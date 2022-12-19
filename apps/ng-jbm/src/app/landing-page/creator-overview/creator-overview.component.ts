@@ -5,7 +5,7 @@ import {
   selectFirstCreators,
 } from '@jbm-creator-network/creators';
 import { Store } from '@ngrx/store';
-import { filter, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'jbm-creator-network-creator-overview',
