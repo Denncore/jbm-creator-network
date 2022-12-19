@@ -37,7 +37,8 @@
 
   <div class="hidden lg:flex space-x-[4vw] ml-auto ">
     <div class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto">
-      <a *ngFor="let entry of headerEntries">{{ entry.name }}</a>
+      <a *ngFor="let entry of headerEntries"
+        class="cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">{{ entry.name }}</a>
     </div>
     <div class="flex w-36 h-7 my-auto">
       <input name="creatorSearch" class="w-full bg-transparent border-b-2 focus:outline-none text-skin-base" />
