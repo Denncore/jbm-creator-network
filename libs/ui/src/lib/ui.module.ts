@@ -5,12 +5,14 @@ import { CardComponent } from './card/card.component';
 import { SocialCountPipe } from './social-count.pipe';
 import { ButtonComponent } from './button/button.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 const components = [
   HeaderComponent,
   CardComponent,
   SocialCountPipe,
   ButtonComponent,
+  FooterComponent,
 ];
 
 @NgModule({
