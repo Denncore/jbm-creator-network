@@ -1,57 +1,57 @@
-<div class="w-full h-full flex flex-col text-skin-base space-y-[1rem] md:space-y-[2vw] md:pt-[8.5vw]">
-    <h1 class="text-heading-sm md:text-heading-vw md:font-bold">Kontakt</h1>
-    <p class="text-base-sm md:text-base-vw p-0">
+<div class="w-full h-full flex flex-col text-skin-base space-y-[1rem] lg:space-y-[2vw] lg:pt-[8.5vw]">
+    <h1 class="text-heading-sm lg:text-heading-vw lg:font-bold">Kontakt</h1>
+    <p class="text-base-sm lg:text-base-vw p-0">
         Gemeinsam schaffenm wir mehr! <br />
         Schreibe uns geren und wir starten <br />
         zusammen etwas großartiges! <br />
     </p>
-    <form [formGroup]="contactForm" class="flex flex-col text-base-sm md:text-[1vw]">
+    <form [formGroup]="contactForm" class="flex flex-col text-base-sm lg:text-[1vw]">
         <input [ngClass]="{ 'outline-red-600 outline': isControlInValid('name') }"
-            class="w-full h-[1.5rem] md:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.7rem] md:px-[1vw] md:mt-[1vw]"
+            class="w-full h-[1.5rem] lg:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.7rem] lg:px-[1vw] lg:mt-[1vw]"
             type="text" placeholder="Dein Name" formControlName="name" />
 
         <input [ngClass]="{ 'outline-red-600 outline': isControlInValid('eMail') }"
-            class="w-full h-[1.5rem] md:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.7rem] md:px-[1vw] md:mt-[1vw]"
+            class="w-full h-[1.5rem] lg:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.7rem] lg:px-[1vw] lg:mt-[1vw]"
             type="text" placeholder="eMail" formControlName="eMail" />
 
-        <div class="mt-[1.5rem] md:mt-[1.5vw]">
-            <div class="pl-[0.6rem] pb-[0.1rem] md:pl-[0.6vw]">
+        <div class="mt-[1.5rem] lg:mt-[1.5vw]">
+            <div class="pl-[0.6rem] pb-[0.1rem] lg:pl-[0.6vw]">
                 <div class="flex">
                     <input #checkbox [ngClass]="{'outline-red-600 outline': isControlInValid('creatorDirectContact')}"
                         class="jbm-checkbox" type="checkbox" formControlName="creatorDirectContact"
                         id="creatorDirectContact" />
 
-                    <label class="jbm-checkbox-label md:text-[0.8vw]" for="creatorDirectContact">
+                    <label class="jbm-checkbox-label lg:text-[0.8vw]" for="creatorDirectContact">
                         Direkte Creator Anfrage
                     </label>
                 </div>
             </div>
             <input [ngClass]="{
           'outline-red-600 outline': isControlInValid('creatorName')
-        }" class="w-full h-[1.5rem] md:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.5rem] md:px-[1vw] md:mt-[0.5vw]"
+        }" class="w-full h-[1.5rem] lg:h-[2vw] rounded-full text-skin-inverted px-[1rem] mt-[0.5rem] lg:px-[1vw] lg:mt-[0.5vw]"
                 type="text" placeholder="Name des Creator" formControlName="creatorName" />
         </div>
 
         <textarea [ngClass]="{ 'outline-red-600 outline': isControlInValid('message') }"
-            class="rounded-xl md:rounded-3xl text-skin-inverted  px-[1rem] py-[0.5rem] md:px-[1vw] md:py-[0.5vw] mt-[0.7rem] md:mt-[1vw] resize-none"
+            class="rounded-xl text-skin-inverted  px-[1rem] py-[0.5rem] lg:px-[1vw] lg:py-[0.5vw] mt-[0.7rem] lg:mt-[1vw] resize-none"
             rows="10" placeholder="Deine Nachricht an uns" formControlName="message"></textarea>
 
-        <div class="pl-[0.6rem] pb-[0.1rem] md:pl-[0.6vw] md:pb-[0.5vw] mt-[1.5rem] md:mt-[1.5vw]">
+        <div class="pl-[0.6rem] pb-[0.1rem] lg:pl-[0.6vw] lg:pb-[0.5vw] mt-[1.5rem] lg:mt-[1.5vw]">
             <div class="flex">
                 <input #checkbox [ngClass]="{'outline-red-600 outline': isControlInValid('tosAccepted')}"
                     class="jbm-checkbox" type="checkbox" formControlName="tosAccepted" id="tosAccepted" />
-                <label class="jbm-checkbox-label md:text-[0.8vw]" for="tosAccepted">
+                <label class="jbm-checkbox-label lg:text-[0.8vw]" for="tosAccepted">
                     Hiermit erkläre ich mich mit den allgemeinen Geschäftsbedingungen
                     einverstanden
                 </label>
             </div>
         </div>
 
-        <ng-hcaptcha class="mt-[2rem] md:mt-[2vw]"
+        <ng-hcaptcha class="mt-[2rem] lg:mt-[2vw]"
             [languageCode]="env.hCaptcha.languageCode ? env.hCaptcha.languageCode : 'de'"
             [siteKey]="env.hCaptcha.siteKey" formControlName="captcha"></ng-hcaptcha>
 
-        <jbm-creator-network-button class="mt-[2rem] md:mt-[2vw]" [withoutIcon]="true"
+        <jbm-creator-network-button class="mt-[2rem] lg:mt-[2vw]" [withoutIcon]="true"
             [disabled]="!contactForm.valid">Senden</jbm-creator-network-button>
     </form>
 </div>

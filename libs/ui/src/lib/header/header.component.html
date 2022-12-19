@@ -24,13 +24,13 @@
 </div>
 
 <div
-  class="fixed md:absolute flex align-middle bg-skin-backdrop w-screen h-[14vw] md:h-[6vw] md:h-[3.3vw] md:min-h-[4rem] pl-[3vw] md:pl-[8vw] pr-[4vw]">
+  class="fixed md:absolute flex align-middle bg-skin-backdrop w-screen h-[14vw] md:h-[6vw] lg:h-[3.3vw] md:min-h-[4rem] pl-[3vw] md:pl-[8vw] pr-[4vw]">
   <img [src]="showMobileMenu ? '/assets/mobile/mobile_menue-icon.svg' : '/assets/mobile/mobile_menue-icon.svg'"
-    class="md:hidden justify-start my-auto w-5 mr-[2.5vw] cursor-pointer" (click)="showMobileMenu = !showMobileMenu" />
+    class="lg:hidden justify-start my-auto w-5 mr-[2.5vw] cursor-pointer" (click)="showMobileMenu = !showMobileMenu" />
   <img src="/assets/logo-header.svg" class="justify-start my-auto w-52" />
   <img class="md:hidden w-[1rem] ml-auto mr" src="assets/lupe.svg" />
 
-  <div class="hidden md:flex space-x-[4vw] ml-auto ">
+  <div class="hidden lg:flex space-x-[4vw] ml-auto ">
     <div class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto">
       <a *ngFor="let entry of headerEntries">{{ entry.name }}</a>
     </div>
