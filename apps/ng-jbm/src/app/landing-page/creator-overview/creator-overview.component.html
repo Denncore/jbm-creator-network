@@ -5,17 +5,11 @@
     Sei auch du ein Teil unserer einzigartigen Gemeinschaft!
   </p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:w-[80vw]">
-    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"></jbm-creator-network-card>
-
-    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"></jbm-creator-network-card>
-
-    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"></jbm-creator-network-card>
-
-    <jbm-creator-network-card [image]="'/assets/test-profil.png'" [name]="'Denncore'" [tag]="'@denncore_'"
-      [socialCounts]="socialCounts"></jbm-creator-network-card>
+    <ng-container *ngIf="creatorEntities">
+      <jbm-creator-network-card *ngFor="let creator of creatorEntities | async;" [image]="'/assets/test-profil.png'"
+        [name]="creator.name" [tag]="creator.id"
+        [socialCounts]="creator.socialCounts ? creator.socialCounts: []"></jbm-creator-network-card>
+    </ng-container>
   </div>
   <div class="md:w-[39vw] md:h-[2.3vw] pt-7">
     <jbm-creator-network-button>Alle Creator</jbm-creator-network-button>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { CreatorsState } from '@jbm-creator-network/creators';
+import { Store } from '@ngrx/store';
 import { HeaderEntry } from 'libs/ui/src/lib/header/header.component';
+import * as CreatorsActions from '@jbm-creator-network/creators';
 
 @Component({
   selector: 'jbm-creator-network-root',
@@ -15,4 +18,8 @@ export class AppComponent {
     { name: 'TEAM', link: '' },
     { name: 'KONTAKT', link: '' },
   ];
+
+  constructor(private store: Store<CreatorsState>) {
+    this.store.dispatch(CreatorsActions.initCreators());
+  }
 }

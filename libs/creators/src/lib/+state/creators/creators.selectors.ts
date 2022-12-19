@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { CreatorsEntity } from './creators.models';
 import {
   CREATORS_FEATURE_KEY,
   CreatorsState,
@@ -11,24 +12,17 @@ export const selectCreatorsState =
 
 const { selectAll, selectEntities } = creatorsAdapter.getSelectors();
 
-export const selectCreatorsLoaded = createSelector(
-  selectCreatorsState,
-  (state: CreatorsState) => state.loaded
-);
-
-export const selectCreatorsError = createSelector(
-  selectCreatorsState,
-  (state: CreatorsState) => state.error
-);
-
-export const selectAllCreators = createSelector(
-  selectCreatorsState,
-  (state: CreatorsState) => selectAll(state)
-);
+export const selectAllCreators = createSelector(selectCreatorsState, selectAll);
+export const selectFirstCreators = (n: number) =>
+  createSelector(
+    selectAllCreators, 
+    (creatorEntities: CreatorsEntity[]) => 
+    creatorEntities.filter((creator, idx) => idx < n) 
+  )
 
 export const selectCreatorsEntities = createSelector(
   selectCreatorsState,
-  (state: CreatorsState) => selectEntities(state)
+  selectEntities
 );
 
 export const selectSelectedId = createSelector(

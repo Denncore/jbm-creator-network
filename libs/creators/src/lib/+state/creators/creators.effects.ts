@@ -1,31 +1,28 @@
-import { Injectable, inject } from '@angular/core';
-import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
-import { of } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, defer, map, of, switchMap } from 'rxjs';
+import { CreatorService } from '../../creator.service';
 
 import * as CreatorsActions from './creators.actions';
-import * as CreatorsFeature from './creators.reducer';
 
 @Injectable()
 export class CreatorsEffects {
   private actions$ = inject(Actions);
 
-  /*
-
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(CreatorsActions.initCreators),
-      fetch({
-        run: () => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return of(CreatorsActions.loadCreatorsSuccess({ creators: [] }));
-        },
-        onError: (action, error) => {
-          console.error('Error', error);
-          return o f(CreatorsActions.loadCreatorsFailure({ error }));
-        },
+      switchMap(() => {
+        return this.creatorService.getCreators().pipe(
+          map(entities => {
+            return CreatorsActions.loadCreatorsSuccess({ creators: entities });
+          }),
+          catchError(error =>
+            of(CreatorsActions.loadCreatorsFailure({ error }))
+          )
+        );
       })
     )
   );
-  */
+  constructor(private creatorService: CreatorService) {}
 }
