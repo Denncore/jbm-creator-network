@@ -7,6 +7,8 @@ export interface CreatorsEntity {
   id: string;
   name: string;
   twitch: string;
+  email: string;
+  description?: string;
   instagram?: string;
   twitter?: string;
   tiktok?: string;

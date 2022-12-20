@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent {
-
   @Input() transparent = false;
   @Input() withoutIcon = false;
   @Input() disabled = false;
+  @Input() link?: string;
 }

@@ -12,11 +12,11 @@ import * as CreatorsActions from '@jbm-creator-network/creators';
 export class AppComponent {
   title = 'ng-jbm';
   headerEntries: HeaderEntry[] = [
-    { name: 'HOME', link: '' },
-    { name: 'CREATOR', link: '' },
-    { name: 'LEISTUNGEN', link: '' },
-    { name: 'TEAM', link: '' },
-    { name: 'KONTAKT', link: '' },
+    { name: 'HOME', link: '/start' },
+    { name: 'CREATOR', link: '/creator' },
+    { name: 'LEISTUNGEN', link: '/services' },
+    { name: 'TEAM', link: '/team' },
+    { name: 'KONTAKT', link: '/contact' },
   ];
 
   constructor(private store: Store<CreatorsState>) {

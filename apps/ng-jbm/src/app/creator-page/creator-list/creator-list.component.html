@@ -1,0 +1,26 @@
+<div class="w-full h-full grid grid-cols-1 gap-y-10 mt-[20vw] pb-[40vw] pl-[3vw] pr-[3vw] md:pl-[8vw] ">
+    <div *ngFor="let creator of creators$ | async" class="grid grid-cols-1 md:grid-cols-2">
+        <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
+            [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
+            [socialCounts]="creator.socialCounts ? creator.socialCounts: []">
+        </jbm-creator-network-vertical-card>
+        <div class="px-10 flex flex-col">
+            <div class="mb-10">
+                <h1 class="text-heading-sm md:text-heading-md lg:text-heading-vw font-bold">{{creator.name}}</h1>
+                <p class="text-skin-highlight text-base-sm md:text-base-md lg:text-base-vw p-0">
+                    {{creator.id}}
+                </p>
+            </div>
+            <p class="text-base-sm md:text-base-md lg:text-base-vw p-0 mb-10">
+                {{creator.description}}
+            </p>
+            <p class="text-base-sm hover:text-skin-highlight md:text-base-md lg:text-base-vw p-0 ">
+                <a [href]="'mailto:' + creator.email">{{creator.email}}</a>
+            </p>
+            <div class="mt-auto">
+                <jbm-creator-network-button [link]="'/kontakt'">Creator
+                    anfragen</jbm-creator-network-button>
+            </div>
+        </div>
+    </div>
+</div>

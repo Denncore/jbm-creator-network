@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { CardComponent } from './card/card.component';
-import { SocialCountPipe } from './social-count.pipe';
-import { ButtonComponent } from './button/button.component';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { SocialCountPipe } from './social-count.pipe';
+import { VerticalCardComponent } from './vertical-card/vertical-card.component';
 
 const components = [
   HeaderComponent,
@@ -13,10 +15,11 @@ const components = [
   SocialCountPipe,
   ButtonComponent,
   FooterComponent,
+  VerticalCardComponent,
 ];
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   declarations: [...components],
   exports: [...components],
 })
