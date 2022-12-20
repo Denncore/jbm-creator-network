@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { 
-    path: 'start', 
+  {
+    path: 'start',
     loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
-  },  { 
-    path: 'creator', 
+  },  {
+    path: 'creator',
     loadChildren: () => import('./creator-page/creator-page.module').then(m => m.CreatorPageModule)
-  },  
+  },
   {
     path: '',
     redirectTo: '/start',
@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

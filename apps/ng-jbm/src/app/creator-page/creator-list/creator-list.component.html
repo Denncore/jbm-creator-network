@@ -2,9 +2,9 @@
     <div *ngFor="let creator of creators$ | async" class="grid grid-cols-1 md:grid-cols-2">
         <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
             [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
-            [socialCounts]="creator.socialCounts ? creator.socialCounts: []">
+            [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [link]="'/' + creator.id">
         </jbm-creator-network-vertical-card>
-        <div class="px-10 flex flex-col">
+        <div class="hidden md:flex md:flex-col md:px-10 ">
             <div class="mb-10">
                 <h1 class="text-heading-sm md:text-heading-md lg:text-heading-vw font-bold">{{creator.name}}</h1>
                 <p class="text-skin-highlight text-base-sm md:text-base-md lg:text-base-vw p-0">

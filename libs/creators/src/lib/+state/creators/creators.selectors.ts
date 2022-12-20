@@ -15,9 +15,16 @@ const { selectAll, selectEntities } = creatorsAdapter.getSelectors();
 export const selectAllCreators = createSelector(selectCreatorsState, selectAll);
 export const selectFirstCreators = (n: number) =>
   createSelector(
-    selectAllCreators, 
-    (creatorEntities: CreatorsEntity[]) => 
-    creatorEntities.filter((creator, idx) => idx < n) 
+    selectAllCreators,
+    (creatorEntities: CreatorsEntity[]) =>
+    creatorEntities.filter((creator, idx) => idx < n)
+  )
+
+export const selectCreator = (id: string) =>
+  createSelector(
+    selectAllCreators,
+    (creatorEntities: CreatorsEntity[]) =>
+      creatorEntities.find((creator) => creator.id === id)
   )
 
 export const selectCreatorsEntities = createSelector(

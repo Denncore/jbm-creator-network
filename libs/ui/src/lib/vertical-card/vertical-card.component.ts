@@ -10,5 +10,7 @@ export class VerticalCardComponent {
   @Input() image = '';
   @Input() name = 'NAME OF CREATOR';
   @Input() tag = '@tag_creator';
-  @Input() socialCounts: SocialCount[] = []
+  @Input() socialCounts: SocialCount[] = [];
+  @Input() link?: string;
+  @Input() withBackground = true;
 }

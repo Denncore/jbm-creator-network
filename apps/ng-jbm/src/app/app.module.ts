@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ENVIRONMENT } from '@jbm-creator-network/environment';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { CreatorsEffects } from 'libs/creators/src/lib/+state/creators/creators.effects';
 import { CreatorsModule } from '@jbm-creator-network/creators';
 
 @NgModule({
