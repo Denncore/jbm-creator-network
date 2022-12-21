@@ -20,5 +20,7 @@ export class HeaderComponent {
   @Input() headerEntries: HeaderEntry[] = [];
 
   @Input() headerAutocompleteEntries?: HeaderAutocompleteEntry[] | null;
+
   showMobileSearch = false;
+
 }

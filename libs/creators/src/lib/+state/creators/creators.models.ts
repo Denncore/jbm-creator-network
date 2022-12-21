@@ -8,11 +8,12 @@ export interface CreatorsEntity {
   name: string;
   twitch: string;
   email: string;
+  img?: string;
   description?: string;
   instagram?: string;
   twitter?: string;
   tiktok?: string;
   youtube?: string;
   facebook?: string;
-  socialCounts?: SocialCount[];
+  socialCounts: SocialCount[];
 }

@@ -1,9 +1,10 @@
 export interface Environment {
   production: boolean;
   name: string;
+  baseUrlApi: string;
   hCaptcha: {
     siteKey: string;
     secret: string;
     languageCode?: string;
-  };
+  }
 }

@@ -11,6 +11,7 @@ import { ENVIRONMENT } from '@jbm-creator-network/environment';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatorsModule } from '@jbm-creator-network/creators';
+import { ApiModule } from '@jbm-creator-network/api';
 
 @NgModule({
   declarations: [AppComponent],

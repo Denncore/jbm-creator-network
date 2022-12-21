@@ -24,7 +24,6 @@ export class CreatorContactComponent implements OnInit {
     private fb: FormBuilder,
     @Inject(ENVIRONMENT) public env: Environment
   ) {
-    console.log(env);
   }
 
   ngOnInit(): void {

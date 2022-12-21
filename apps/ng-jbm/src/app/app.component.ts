@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TwitchService } from '@jbm-creator-network/api';
 import * as CreatorsActions from '@jbm-creator-network/creators';
 import {
   CreatorsState,
@@ -20,23 +21,23 @@ export class AppComponent {
     { name: 'CREATOR', link: '/creator' },
     { name: 'KONTAKT', link: '/contact' },
   ];
-
   autoCompleteEntities$: Observable<HeaderAutocompleteEntry[]>;
 
-  constructor(private store: Store<CreatorsState>) {
+  constructor(
+    private store: Store<CreatorsState>,
+    private twitchService: TwitchService
+  ) {
     this.store.dispatch(CreatorsActions.initCreators());
-    this.autoCompleteEntities$ = this.store
-      .select(selectAllCreators)
-      .pipe(
-        map(creators =>
-          creators.map(
-            creator =>
-              ({
-                id: creator.id,
-                name: creator.name,
-              } as HeaderAutocompleteEntry)
-          )
+    this.autoCompleteEntities$ = this.store.select(selectAllCreators).pipe(
+      map(creators =>
+        creators.map(
+          creator =>
+            ({
+              id: creator.id,
+              name: creator.name,
+            } as HeaderAutocompleteEntry)
         )
-      );
+      )
+    );
   }
 }

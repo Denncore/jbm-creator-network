@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Social, SocialCount } from '@jbm-creator-network/ui';
-import { Observable, of } from 'rxjs';
+import {
+  combineLatest,
+  combineLatestAll,
+  map,
+  mergeMap,
+  Observable,
+  of,
+  switchMap,
+} from 'rxjs';
 import { CreatorsEntity } from './+state/creators/creators.models';
-
+import { TwitchService } from '@jbm-creator-network/api';
 const randomIntFromInterval = (min: number, max: number) => {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -16,6 +24,7 @@ const entities: CreatorsEntity[] = [
     twitch: 'hatschyuh',
     twitter: 'HatschYuh',
     instagram: 'HatschYuh',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -26,6 +35,7 @@ const entities: CreatorsEntity[] = [
     twitch: 'justedris',
     twitter: 'JustEdris',
     youtube: 'TDNZockt',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -38,6 +48,7 @@ const entities: CreatorsEntity[] = [
     youtube: '@doky4928',
     instagram: 'maxi.doky',
     tiktok: '@maxi.doky?',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -49,6 +60,7 @@ const entities: CreatorsEntity[] = [
     twitter: 'LizKatoArt',
     instagram: 'liz_kato_art',
     tiktok: '@lizkatodesign',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -57,6 +69,7 @@ const entities: CreatorsEntity[] = [
     name: 'Lapotor',
     email: 'info@jbm.contact',
     twitch: 'lapotor',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -69,6 +82,7 @@ const entities: CreatorsEntity[] = [
     youtube: '@MirkaChan',
     instagram: 'mimi.maid',
     tiktok: '@mimimaid',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -79,6 +93,7 @@ const entities: CreatorsEntity[] = [
     twitch: 'fuki',
     twitter: 'FukiLive',
     tiktok: '@fukilive',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -89,6 +104,7 @@ const entities: CreatorsEntity[] = [
     twitch: 'schokoevi',
     twitter: 'SchokoEvi',
     instagram: 'evelyn.nfld',
+    socialCounts: [],
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
   },
@@ -98,15 +114,42 @@ const entities: CreatorsEntity[] = [
   providedIn: 'root',
 })
 export class CreatorService {
+  constructor(private twitchService: TwitchService) {}
+
   getCreators(): Observable<CreatorsEntity[]> {
-    return of(this.extendWithSocialCounts(entities));
+    return this.extendWithSocialCounts(entities);
   }
 
-  private extendWithSocialCounts(creators: CreatorsEntity[]): CreatorsEntity[] {
-    return creators.map(entity => ({
-      ...entity,
-      socialCounts: this.mockSocials(),
-    }));
+  private extendWithSocialCounts(
+    creators: CreatorsEntity[]
+  ): Observable<CreatorsEntity[]> {
+    const requests: Observable<CreatorsEntity>[] = [];
+    creators.forEach(creator => {
+      requests.push(this.extendWithTwitchIfNecessary(creator));
+    });
+    return combineLatest(requests);
+  }
+
+  private extendWithTwitchIfNecessary(
+    creator: CreatorsEntity
+  ): Observable<CreatorsEntity> {
+    if (creator.twitch) {
+      return this.twitchService.getChannelInfo(creator.twitch).pipe(
+        map(twitchInfo => {
+          const twitchCount = {
+            count: twitchInfo.followerCount,
+            social: Social.TWITCH,
+          };
+
+          return {
+            ...creator,
+            img: twitchInfo.profile_image_url,
+            socialCounts: [...creator.socialCounts, twitchCount],
+          };
+        })
+      );
+    }
+    return of(creator);
   }
 
   private mockSocials(): SocialCount[] {
