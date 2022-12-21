@@ -1,9 +1,19 @@
 <div [ngClass]="{'rounded-xl bg-skin-fill shadow-black shadow-md': withBackground}"
-  class="w-full h-full grid grid-cols-1 gap-y-5 p-[5%] md:pt-[15%]">
+    class="w-full h-full grid grid-cols-1 gap-y-5 p-[5%]">
 
-    <div class="w-[40%] md:w-[60%] h-full mx-auto">
+    <div class="w-[40%] md:w-[60%] lg:w-[30%] h-full mx-auto">
         <div class="rounded-full bg-white h-auto aspect-square">
-            <img class="rounded-full w-full" [src]="image" />
+            <div *ngIf="link; else withoutLink">
+                <a [routerLink]="'/creator/' + link">
+                    <img class="rounded-full w-full" [src]="image" />
+                </a>
+            </div>
+
+            <ng-template #withoutLink>
+                <img class="rounded-full w-full" [src]="image" />
+            </ng-template>
+
+
         </div>
     </div>
 
@@ -14,14 +24,14 @@
         <div [ngClass]="{ 'grid-cols-2': socialCounts.length > 1, 'grid-cols-1': socialCounts.length <= 1}"
             class="grid mt-[10%] gap-x-[10vw] gap-y-[4vw] md:gap-x-[5vw] md:gap-y-[1vw]">
             <div class="flex space-x-[0.5rem] md:space-x-[2vw]" *ngFor="let socialCount of socialCounts">
-                <img class="w-[1.5rem] h-[1.3rem] md:w-[2.5vw] md:h-[3vw] self-start"
+                <img class="w-[1.5rem] h-[1.3rem] md:w-[2.5vw] md:h-[3vw] lg:w-[1.5vw] lg:h-[2vw] self-start"
                     [src]="'/assets/socials/' + socialCount.social + '.svg'" />
-                <span class="text-skin-base md:text-base-md self-start">{{ socialCount.count |
+                <span class="text-skin-base md:text-base-md lg:text-base-vw self-start">{{ socialCount.count |
                     socialCount }}</span>
             </div>
         </div>
     </div>
-    <div *ngIf="link" class="py-7 md:invisible md:py-0">
+    <div *ngIf="link" class="py-7 md:hidden md:py-0">
         <jbm-creator-network-button [link]="'/creator/' + link">Zur Sedcard</jbm-creator-network-button>
     </div>
 </div>

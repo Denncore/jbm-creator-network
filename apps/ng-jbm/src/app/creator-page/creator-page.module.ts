@@ -6,7 +6,8 @@ import { CreatorsTitleComponent } from './creators-title/creators-title.componen
 import { UiModule } from '@jbm-creator-network/ui';
 import { CreatorListComponent } from './creator-list/creator-list.component';
 import { CreatorDetailComponent } from './creator-detail/creator-detail.component';
-import { CreatorImpressumComponent } from './creator-impressum/creator-impressum.component';
+import { CreatorImpressumComponent } from './creator-detail/creator-impressum/creator-impressum.component';
+import { CreatorDescriptionComponent } from './creator-detail/creator-description/creator-description.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CreatorImpressumComponent } from './creator-impressum/creator-impressum
     CreatorListComponent,
     CreatorDetailComponent,
     CreatorImpressumComponent,
+    CreatorDescriptionComponent,
   ],
   imports: [CommonModule, CreatorPageRoutingModule, UiModule],
 })

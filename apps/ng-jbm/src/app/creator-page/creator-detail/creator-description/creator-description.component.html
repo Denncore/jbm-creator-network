@@ -1,0 +1,15 @@
+<ng-container *ngIf="creator$ | async as creator">
+    <div class="flex flex-col h-full px-10 pb-60 pt-10">
+        <p class="text-base-sm md:text-base-md lg:text-base-vw p-0 mb-10">
+            {{creator.description}}
+        </p>
+        <p class="text-base-sm hover:text-skin-highlight md:text-base-md lg:text-base-vw p-0 mb-10 ">
+            <a [href]="'mailto:' + creator.email">{{creator.email}}</a>
+        </p>
+        <router-outlet name="creator-detail"></router-outlet>
+    </div>
+    <div class="h-full lg:max-w-4xl px-10 pb-10">
+        <jbm-creator-network-button [transparent]="true" [link]="'/creator/' + creator.id + '/impressum'">Impressum
+        </jbm-creator-network-button>
+    </div>
+</ng-container>

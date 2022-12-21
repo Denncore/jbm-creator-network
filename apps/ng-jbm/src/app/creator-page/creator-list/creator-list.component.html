@@ -2,9 +2,9 @@
     <div *ngFor="let creator of creators$ | async" class="grid grid-cols-1 md:grid-cols-2">
         <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
             [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
-            [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [link]="'/' + creator.id">
+            [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [link]="creator.id">
         </jbm-creator-network-vertical-card>
-        <div class="hidden md:flex md:flex-col md:px-10 ">
+        <div class="hidden px-10 md:flex flex-col">
             <div class="mb-10">
                 <h1 class="text-heading-sm md:text-heading-md lg:text-heading-vw font-bold">{{creator.name}}</h1>
                 <p class="text-skin-highlight text-base-sm md:text-base-md lg:text-base-vw p-0">
@@ -17,7 +17,9 @@
             <p class="text-base-sm hover:text-skin-highlight md:text-base-md lg:text-base-vw p-0 ">
                 <a [href]="'mailto:' + creator.email">{{creator.email}}</a>
             </p>
-            <div class="mt-auto">
+            <div class="mt-auto flex flex-col space-y-4 pt-4">
+                <jbm-creator-network-button [transparent]="true" [link]="'/creator/' + creator.id">Zur
+                    Sedcard</jbm-creator-network-button>
                 <jbm-creator-network-button [link]="'/kontakt'">Creator
                     anfragen</jbm-creator-network-button>
             </div>

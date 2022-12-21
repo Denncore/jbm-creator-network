@@ -1,26 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreatorPageComponent } from './creator-page.component';
-import {CreatorDetailComponent} from "./creator-detail/creator-detail.component";
-import {CreatorImpressumComponent} from "./creator-impressum/creator-impressum.component";
+import { CreatorDetailComponent } from './creator-detail/creator-detail.component';
+import { CreatorImpressumComponent } from './creator-detail/creator-impressum/creator-impressum.component';
+import { CreatorDescriptionComponent } from './creator-detail/creator-description/creator-description.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CreatorPageComponent
+    component: CreatorPageComponent,
   },
   {
     path: ':id',
-    component: CreatorDetailComponent
+    component: CreatorDetailComponent,
+    children: [
+      {
+        path: '',
+        component: CreatorDescriptionComponent,
+      },
+      {
+        path: 'impressum',
+        component: CreatorImpressumComponent,
+      },
+    ],
   },
-  {
-    path: ':id/impressum',
-    component: CreatorImpressumComponent
-  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CreatorPageRoutingModule { }
+export class CreatorPageRoutingModule {}

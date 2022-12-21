@@ -1,28 +1,19 @@
 <div class="w-screen h-full flex flex-col
  bg-white overflow-x-hidden">
   <ng-container *ngIf="creator$ | async as creator">
-    <div class="w-full grid-cols-1 text-skin-base space-y-[4vw] bg-creators-mobile md:bg-creators-web
-bg-cover bg-no-repeat pt-[35vw] h-full min-h-[115vw] lg:min-h-[72vw] md:pt-[18vw] lg:pt-[13vw]  px-[3vw] md:px-[8vw] pb-[30vw]">
+    <div
+      class="w-full grid-cols-1 text-skin-base space-y-[4vw] bg-creators-mobile md:bg-creators-web
+bg-cover bg-no-repeat pt-[35vw] h-full min-h-[115vw] lg:min-h-[20vw] md:pt-[18vw] lg:pt-[13vw]  px-[3vw] md:px-[8vw] pb-[30vw]">
       <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
-                                         [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
-                                         [socialCounts]="creator.socialCounts ? creator.socialCounts: []"
-                                         [withBackground]="false">
+        [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
+        [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [withBackground]="false" [link]="creator.id">
       </jbm-creator-network-vertical-card>
-
-
     </div>
-    <div class="flex flex-col h-full px-10 pb-60 pt-10">
-      <p class="text-base-sm md:text-base-md lg:text-base-vw p-0 mb-10">
-        {{creator.description}}
-      </p>
-      <p class="text-base-sm hover:text-skin-highlight md:text-base-md lg:text-base-vw p-0 mb-10 ">
-        <a [href]="'mailto:' + creator.email">{{creator.email}}</a>
-      </p>
-      <div class="mt-auto">
-        <jbm-creator-network-button [link]="'/kontakt'">Creator
-          anfragen
-        </jbm-creator-network-button>
-      </div>
+    <router-outlet></router-outlet>
+    <div class="h-full lg:max-w-4xl px-10 pb-60">
+      <jbm-creator-network-button [link]="'/kontakt'">Creator
+        anfragen
+      </jbm-creator-network-button>
     </div>
   </ng-container>
 </div>
