@@ -24,6 +24,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'contact',
+    loadChildren: () =>
+      import('./contact-page/contact-page.module').then(
+        m => m.ContactPageModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'start',
     pathMatch: 'full',
