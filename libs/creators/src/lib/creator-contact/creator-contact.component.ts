@@ -1,14 +1,15 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Environment, ENVIRONMENT } from '@jbm-creator-network/environment';
-import { CaptchaServiceService } from './captcha-service.service';
 
 @Component({
   selector: 'jbm-creator-network-creator-contact',
   templateUrl: './creator-contact.component.html',
   styleUrls: ['./creator-contact.component.css'],
 })
-export class CreatorContactComponent {
+export class CreatorContactComponent implements OnInit {
+  @Input() preSelectedCreator?: string | null;
+
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     eMail: ['', [Validators.required, Validators.email]],
@@ -24,6 +25,11 @@ export class CreatorContactComponent {
     @Inject(ENVIRONMENT) public env: Environment
   ) {
     console.log(env);
+  }
+
+  ngOnInit(): void {
+    console.log(this.preSelectedCreator);
+    this.contactForm.controls['creatorName'].setValue(this.preSelectedCreator);
   }
 
   isControlInValid(formControlName: string): boolean {
