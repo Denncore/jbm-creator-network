@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import * as CreatorsActions from '@jbm-creator-network/creators';
 import {
   CreatorsState,
-  selectAllCreators
+  selectAllCreators,
 } from '@jbm-creator-network/creators';
 import { HeaderAutocompleteEntry, HeaderEntry } from '@jbm-creator-network/ui';
 import { Store } from '@ngrx/store';
@@ -18,7 +18,6 @@ export class AppComponent {
   headerEntries: HeaderEntry[] = [
     { name: 'HOME', link: '/start' },
     { name: 'CREATOR', link: '/creator' },
-    { name: 'LEISTUNGEN', link: '/services' },
     { name: 'KONTAKT', link: '/contact' },
   ];
 
@@ -29,7 +28,15 @@ export class AppComponent {
     this.autoCompleteEntities$ = this.store
       .select(selectAllCreators)
       .pipe(
-        map(creators => creators.map(creator => ({ id: creator.id, name: creator.name } as HeaderAutocompleteEntry)))
+        map(creators =>
+          creators.map(
+            creator =>
+              ({
+                id: creator.id,
+                name: creator.name,
+              } as HeaderAutocompleteEntry)
+          )
+        )
       );
   }
 }

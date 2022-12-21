@@ -16,6 +16,7 @@ module.exports = {
         'creators-web': "url('/assets/pages/creators/head-graphic.svg')",
         'creators-mobile':
           "url('/assets/pages/creators/head-graphic-mobile.svg')",
+        'services-web': "url('/assets/pages/services/background.svg')",
       },
       fontSize: {
         'base-vw': '1.40vw',

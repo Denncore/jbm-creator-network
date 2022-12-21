@@ -4,20 +4,36 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'start',
-    loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingPageModule)
-  },  {
+    loadChildren: () =>
+      import('./landing-page/landing-page.module').then(
+        m => m.LandingPageModule
+      ),
+  },
+  {
     path: 'creator',
-    loadChildren: () => import('./creator-page/creator-page.module').then(m => m.CreatorPageModule)
+    loadChildren: () =>
+      import('./creator-page/creator-page.module').then(
+        m => m.CreatorPageModule
+      ),
+  },
+  {
+    path: 'services',
+    loadChildren: () =>
+      import('./services-page/services-page.module').then(
+        m => m.ServicesPageModule
+      ),
   },
   {
     path: '',
-    redirectTo: '/start',
-    pathMatch: 'full'
-  }
+    redirectTo: 'start',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
