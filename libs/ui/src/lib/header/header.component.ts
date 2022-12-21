@@ -4,6 +4,10 @@ export interface HeaderEntry {
   name: string;
   link: string;
 }
+export interface HeaderAutocompleteEntry {
+  id: string;
+  name: string;
+}
 
 @Component({
   selector: 'jbm-creator-network-header',
@@ -14,4 +18,7 @@ export class HeaderComponent {
   @Input() showMobileMenu = false;
 
   @Input() headerEntries: HeaderEntry[] = [];
+
+  @Input() headerAutocompleteEntries?: HeaderAutocompleteEntry[] | null;
+  showMobileSearch = false;
 }

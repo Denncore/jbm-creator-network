@@ -4037,6 +4037,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"angular-ng-autocomplete@npm:^2.0.12":
+  version: 2.0.12
+  resolution: "angular-ng-autocomplete@npm:2.0.12"
+  dependencies:
+    tslib: ^2.3.0
+  peerDependencies:
+    "@angular/common": "*"
+    "@angular/core": "*"
+  checksum: 3a9c6b5a8a64925164ad8fcabde2b095953c500f77752e9deaac5c7551f2f48b8016ce53ac72a1582d48648e0698a8b92d23cc4e99b30e20b11659b48c3afe9d
+  languageName: node
+  linkType: hard
+
 "ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1":
   version: 4.1.3
   resolution: "ansi-colors@npm:4.1.3"
@@ -8022,6 +8034,7 @@ __metadata:
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": ^5.36.1
     "@typescript-eslint/parser": ^5.36.1
+    angular-ng-autocomplete: ^2.0.12
     autoprefixer: ^10.4.0
     eslint: ~8.15.0
     eslint-config-prettier: 8.1.0

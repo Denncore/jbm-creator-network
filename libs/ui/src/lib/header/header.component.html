@@ -1,9 +1,9 @@
 <div [ngClass]="{ 'invisible -top-[14vw] opacity-0': !showMobileMenu, 'top-0 opacity-1': showMobileMenu}"
-  class="fixed inset-0 w-screen h-screen mt-[14vw] md:mt-[6vw] hover:top-0 duration-500 ease-out transition-all z-50 transition-y-full"
+  class="fixed inset-0 w-screen h-screen mt-[14vw] md:mt-[6vw] hover:top-0 duration-500 ease-out transition-all z-50 transition-y-full  select-none"
   (click)="showMobileMenu = false">
   <div class="w-full h-[34rem] md:h-[45rem] max-h-[100vh] rounded-b-3xl bg-skin-mobile-menu px-[8.2vw] py-[5vw]"
     (click)="$event.stopPropagation()">
-    <div class="flex flex-col text-[1.5rem] justify-between text-skin-base my-auto h-full select-none">
+    <div class="flex flex-col text-[1.5rem] justify-between text-skin-base my-auto h-full">
       <div class="flex flex-col">
         <a *ngFor="let entry of headerEntries" [routerLink]="entry.link" (click)="showMobileMenu = false"
           class="mb-8 cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">{{ entry.name
@@ -30,19 +30,45 @@
 
 <div
   class="fixed md:absolute flex align-middle bg-skin-backdrop w-screen h-[14vw] md:h-[6vw] lg:h-[3.3vw] md:min-h-[4rem] pl-[3vw] md:pl-[8vw] pr-[4vw]">
-  <img [src]="showMobileMenu ? '/assets/mobile/mobile_menue-icon.svg' : '/assets/mobile/mobile_menue-icon.svg'"
+  <img *ngIf="!showMobileSearch"
+    [src]="showMobileMenu ? '/assets/mobile/mobile_menue-icon.svg' : '/assets/mobile/mobile_menue-icon.svg'"
     class="lg:hidden justify-start my-auto w-5 mr-[2.5vw] cursor-pointer" (click)="showMobileMenu = !showMobileMenu" />
-  <img src="/assets/logo-header.svg" class="justify-start my-auto w-52" />
-  <img class="md:hidden w-[1rem] ml-auto mr" src="assets/lupe.svg" />
+
+
+  <img *ngIf="!showMobileSearch" [routerLink]="'/'" src="/assets/logo-header.svg"
+    class="justify-start my-auto w-52 cursor-pointer" />
+
+
+  <div class="flex w-full h-full mb-10 autocomplete justify-start my-auto ">
+    <div [ngClass]="{ 'invisible -right-96 opacity-0': !showMobileSearch, 'right-0 opacity-1': showMobileSearch}"
+      class="w-full autocomplete pr-5 self-center duration-150 ease-in-out transition-all">
+      <ng-autocomplete *ngIf="headerAutocompleteEntries" [data]="headerAutocompleteEntries" [searchKeyword]="'name'"
+        (selected)='showMobileSearch = false' [itemTemplate]="itemTemplate">
+      </ng-autocomplete>
+      <ng-template #itemTemplate let-item>
+        <a (click)="showMobileSearch = false" [routerLink]="'/creator/' + item.id" [innerHTML]="item.name"></a>
+      </ng-template>
+    </div>
+
+    <img (click)="showMobileSearch = !showMobileSearch" class="my-auto lg:hidden w-[1rem] ml-auto mr cursor-pointer"
+      src="assets/lupe.svg" />
+  </div>
+
 
   <div class="hidden lg:flex space-x-[4vw] ml-auto ">
     <div class="flex text-base justify-self-end justify-between space-x-[4vw] text-skin-base my-auto">
       <a *ngFor="let entry of headerEntries" [routerLink]="entry.link"
         class="cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">{{ entry.name }}</a>
     </div>
-    <div class="flex w-36 h-7 my-auto">
-      <input name="creatorSearch" class="w-full bg-transparent border-b-2 focus:outline-none text-skin-base" />
-      <img class="w-[1rem] self-end ml-4" src="assets/lupe.svg" />
+    <div class="flex w-44 h-7 mt-3 autocomplete">
+      <ng-autocomplete *ngIf="headerAutocompleteEntries" [data]="headerAutocompleteEntries" [searchKeyword]="'name'"
+        [itemTemplate]="itemTemplate">
+      </ng-autocomplete>
+      <img class="w-[1rem] self-end ml-4 pt-5" src="assets/lupe.svg" />
+
+      <ng-template #itemTemplate let-item>
+        <a [routerLink]="'/creator/' + item.id" [innerHTML]="item.name"></a>
+      </ng-template>
     </div>
   </div>
 </div>

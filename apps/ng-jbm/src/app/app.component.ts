@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { CreatorsState } from '@jbm-creator-network/creators';
-import { Store } from '@ngrx/store';
 import * as CreatorsActions from '@jbm-creator-network/creators';
-import { HeaderEntry } from '@jbm-creator-network/ui';
+import {
+  CreatorsState,
+  selectAllCreators
+} from '@jbm-creator-network/creators';
+import { HeaderAutocompleteEntry, HeaderEntry } from '@jbm-creator-network/ui';
+import { Store } from '@ngrx/store';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'jbm-creator-network-root',
@@ -18,7 +22,14 @@ export class AppComponent {
     { name: 'KONTAKT', link: '/contact' },
   ];
 
+  autoCompleteEntities$: Observable<HeaderAutocompleteEntry[]>;
+
   constructor(private store: Store<CreatorsState>) {
     this.store.dispatch(CreatorsActions.initCreators());
+    this.autoCompleteEntities$ = this.store
+      .select(selectAllCreators)
+      .pipe(
+        map(creators => creators.map(creator => ({ id: creator.id, name: creator.name } as HeaderAutocompleteEntry)))
+      );
   }
 }

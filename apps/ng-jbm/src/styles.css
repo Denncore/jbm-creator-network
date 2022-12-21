@@ -10,6 +10,34 @@
   .jbm-checkbox-label {
     @apply inline-block text-skin-base text-[0.7rem] md:text-[0.6vw] self-center cursor-pointer select-none md:pt-[0.1vw];
   }
+  .autocomplete ng-autocomplete .autocomplete-container .input-container input {
+    @apply w-full bg-transparent focus:outline-none text-skin-base;
+  }
+  .autocomplete ng-autocomplete .autocomplete-container {
+    @apply w-full outline-none shadow-none border-b-2 border-white;
+  }
+  .autocomplete ng-autocomplete .autocomplete-container .suggestions-container {
+    @apply bg-skin-fill text-skin-base;
+  }
+  .autocomplete
+    ng-autocomplete
+    .autocomplete-container
+    .suggestions-container
+    ul {
+    @apply max-h-screen;
+  }
+  .autocomplete
+    ng-autocomplete
+    .autocomplete-container
+    .suggestions-container
+    .item
+    a {
+    @apply bg-skin-fill text-skin-base;
+  }
+
+  .autocomplete ng-autocomplete .input-container .x > i {
+    @apply text-skin-base;
+  }
 }
 
 body {
