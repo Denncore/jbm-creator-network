@@ -1,20 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Social, SocialCount } from '@jbm-creator-network/ui';
-import {
-  combineLatest,
-  combineLatestAll,
-  map,
-  mergeMap,
-  Observable,
-  of,
-  switchMap,
-} from 'rxjs';
-import { CreatorsEntity } from './+state/creators/creators.models';
 import { TwitchService } from '@jbm-creator-network/api';
-const randomIntFromInterval = (min: number, max: number) => {
-  // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+import { Social } from '@jbm-creator-network/ui';
+import { combineLatest, map, Observable, of } from 'rxjs';
+import { CreatorsEntity } from './+state/creators/creators.models';
 
 const entities: CreatorsEntity[] = [
   {
@@ -151,6 +139,4 @@ export class CreatorService {
     }
     return of(creator);
   }
-
- 
 }

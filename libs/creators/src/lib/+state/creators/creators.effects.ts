@@ -1,10 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap, withLatestFrom } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { CreatorService } from '../../creator.service';
 
 import * as CreatorsActions from './creators.actions';
-import { selectAllCreators } from './creators.selectors';
 
 @Injectable()
 export class CreatorsEffects {
