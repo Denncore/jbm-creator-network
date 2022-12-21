@@ -152,32 +152,5 @@ export class CreatorService {
     return of(creator);
   }
 
-  private mockSocials(): SocialCount[] {
-    return [
-      randomIntFromInterval(0, 10) < 7
-        ? { social: Social.TWITCH, count: randomIntFromInterval(1, 999999) }
-        : undefined,
-      randomIntFromInterval(0, 10) < 7
-        ? { social: Social.TIKTOK, count: randomIntFromInterval(1, 9) }
-        : undefined,
-      randomIntFromInterval(0, 10) < 7
-        ? {
-            social: Social.FACEBOOK,
-            count: randomIntFromInterval(10000, 50000),
-          }
-        : undefined,
-      randomIntFromInterval(0, 10) < 7
-        ? { social: Social.INSTAGRAM, count: randomIntFromInterval(200, 1000) }
-        : undefined,
-      randomIntFromInterval(0, 10) < 7
-        ? { social: Social.TWITTER, count: randomIntFromInterval(20002, 30002) }
-        : undefined,
-      randomIntFromInterval(0, 10) < 7
-        ? {
-            social: Social.YOUTUBE,
-            count: randomIntFromInterval(1000000, 2000000),
-          }
-        : undefined,
-    ].filter(count => !!count) as SocialCount[];
-  }
+ 
 }

@@ -6,7 +6,7 @@
   </p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:w-[80vw]">
     <ng-container *ngIf="creatorEntities">
-      <jbm-creator-network-card *ngFor="let creator of creatorEntities | async;" [image]="'/assets/test-profil.png'"
+      <jbm-creator-network-card *ngFor="let creator of creatorEntities | async;" [image]="creator.img"
         [name]="creator.name" [tag]="creator.id"
         [socialCounts]="creator.socialCounts ? creator.socialCounts: []"></jbm-creator-network-card>
     </ng-container>

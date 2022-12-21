@@ -1,7 +1,7 @@
 <div class="w-full h-full grid grid-cols-1 gap-y-10 mt-[20vw] pb-[40vw] pl-[3vw] pr-[3vw] md:pl-[8vw] ">
     <div *ngFor="let creator of creators$ | async" class="grid grid-cols-1 md:grid-cols-2">
         <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
-            [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
+            [image]="creator.img" [name]="creator.name" [tag]="creator.id"
             [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [link]="creator.id">
         </jbm-creator-network-vertical-card>
         <div class="hidden px-10 md:flex flex-col">

@@ -5,7 +5,7 @@
       class="w-full grid-cols-1 text-skin-base space-y-[4vw] bg-creators-mobile md:bg-creators-web
 bg-cover bg-no-repeat pt-[35vw] h-full min-h-[115vw] lg:min-h-[20vw] md:pt-[18vw] lg:pt-[13vw]  px-[3vw] md:px-[8vw] pb-[30vw]">
       <jbm-creator-network-vertical-card class="w-full max-w-[50rem] h-auto min-h-50 bg-fill rounded-xl"
-        [image]="'/assets/test-profil.png'" [name]="creator.name" [tag]="creator.id"
+        [image]="creator.img" [name]="creator.name" [tag]="creator.id"
         [socialCounts]="creator.socialCounts ? creator.socialCounts: []" [withBackground]="false">
       </jbm-creator-network-vertical-card>
     </div>
