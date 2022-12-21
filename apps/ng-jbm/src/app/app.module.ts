@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { UiModule } from '@jbm-creator-network/ui';
-import { AppRoutingModule } from './app-routing.module';
-import { ENVIRONMENT } from '@jbm-creator-network/environment';
-import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatorsModule } from '@jbm-creator-network/creators';
-import { ApiModule } from '@jbm-creator-network/api';
+import { ENVIRONMENT } from '@jbm-creator-network/environment';
+import { UiModule } from '@jbm-creator-network/ui';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
