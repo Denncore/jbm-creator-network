@@ -118,7 +118,7 @@ export class CreatorService {
     creators.forEach(creator => {
       requests.push(
         this.extendWithTwitchIfNecessary(creator).pipe(
-          switchMap(creator => this.extendWithTwitchIfNecessary(creator))
+          switchMap(creator => this.extendWithTwitterIfNecessary(creator))
         )
       );
     });
