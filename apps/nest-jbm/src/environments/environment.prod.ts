@@ -12,5 +12,10 @@ export const environment: Environment = {
       secret: '',
       bearerToken: '',
     },
+    youtube: {
+      apiKey: '',
+      clientId: '',
+      secret: '',
+    },
   },
 };

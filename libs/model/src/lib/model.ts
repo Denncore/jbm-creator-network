@@ -5,3 +5,15 @@ export interface TwitchInfo {
 export interface TwitterInfo {
   followerCount: number;
 }
+export interface InstagramInfo {
+  followerCount: number;
+}
+export interface FacebookInfo {
+  followerCount: number;
+}
+export interface TiktokInfo {
+  subscriberCount: number;
+}
+export interface YoutubeInfo {
+  subscriberCount: number;
+}

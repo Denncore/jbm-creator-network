@@ -9,6 +9,11 @@ export interface Environment {
         apiKey: string,
         secret: string,
         bearerToken: string
+      },
+      youtube: {
+        apiKey: string;
+        clientId: string;
+        secret: string;
       }
     }
 }

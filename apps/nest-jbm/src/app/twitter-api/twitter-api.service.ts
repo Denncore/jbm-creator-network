@@ -1,7 +1,7 @@
 import { TwitterInfo } from '@jbm-creator-network/model';
 import { HttpService } from '@nestjs/axios';
 import { Injectable, Logger } from '@nestjs/common';
-import { catchError, map, Observable, of, switchMap } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -26,7 +26,12 @@ export class TwitterApiService {
         },
       })
       .pipe(
-        map(resp => ({followerCount: resp.data.data[0].public_metrics.followers_count} as TwitterInfo)),
+        map(
+          resp =>
+            ({
+              followerCount: resp.data.data[0].public_metrics.followers_count,
+            } as TwitterInfo)
+        ),
         catchError(error => {
           Logger.error(
             `Can't receive user infos from endpoint: '${url}'`,
@@ -36,7 +41,7 @@ export class TwitterApiService {
         })
       );
   }
- 
+
   private getAuthHeader() {
     return {
       Authorization: `Bearer ${environment.api.twitter.bearerToken}`,

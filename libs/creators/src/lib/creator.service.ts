@@ -1,5 +1,10 @@
 import { Injectable } from '@angular/core';
-import { TwitchService, TwitterService } from '@jbm-creator-network/api';
+import {
+  TwitchService,
+  TwitterService,
+  YoutubeService,
+} from '@jbm-creator-network/api';
+import { YoutubeInfo } from '@jbm-creator-network/model';
 import { Social } from '@jbm-creator-network/ui';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { CreatorsEntity } from './+state/creators/creators.models';
@@ -33,7 +38,6 @@ const entities: CreatorsEntity[] = [
     email: 'truedoky@jbm.contact',
     twitch: 'truedoky',
     twitter: 'xDoky',
-    youtube: '@doky4928',
     instagram: 'maxi.doky',
     tiktok: '@maxi.doky?',
     socialCounts: [],
@@ -67,7 +71,6 @@ const entities: CreatorsEntity[] = [
     email: 'mimimaid@jbm.contact',
     twitch: 'mimimaid',
     twitter: 'MimiMaid',
-    youtube: '@MirkaChan',
     instagram: 'mimi.maid',
     tiktok: '@mimimaid',
     socialCounts: [],
@@ -104,7 +107,8 @@ const entities: CreatorsEntity[] = [
 export class CreatorService {
   constructor(
     private twitchService: TwitchService,
-    private twitterService: TwitterService
+    private twitterService: TwitterService,
+    private youtubeService: YoutubeService
   ) {}
 
   getCreators(): Observable<CreatorsEntity[]> {
@@ -118,7 +122,8 @@ export class CreatorService {
     creators.forEach(creator => {
       requests.push(
         this.extendWithTwitchIfNecessary(creator).pipe(
-          switchMap(creator => this.extendWithTwitterIfNecessary(creator))
+          switchMap(creator => this.extendWithTwitterIfNecessary(creator)),
+          switchMap(creator => this.extendWithYoutubeIfNecessary(creator))
         )
       );
     });
@@ -156,6 +161,27 @@ export class CreatorService {
           const twitterCount = {
             count: twitterInfo.followerCount,
             social: Social.TWITTER,
+          };
+
+          return {
+            ...creator,
+            socialCounts: [...creator.socialCounts, twitterCount],
+          };
+        })
+      );
+    }
+    return of(creator);
+  }
+
+  private extendWithYoutubeIfNecessary(
+    creator: CreatorsEntity
+  ): Observable<CreatorsEntity> {
+    if (creator.youtube) {
+      return this.youtubeService.getChannelInfo(creator.youtube).pipe(
+        map(twitterInfo => {
+          const twitterCount = {
+            count: twitterInfo.subscriberCount,
+            social: Social.YOUTUBE,
           };
 
           return {
