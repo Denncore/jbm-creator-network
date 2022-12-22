@@ -29,6 +29,9 @@ export class TwitchApiService {
     );
   }
 
+  /**
+   * GET https://api.twitch.tv/helix/users
+   */
   private getUserInfo(userLogin: string): Observable<TwitchUser> {
     const url = `https://api.twitch.tv/helix/users`;
     return this.httpService
@@ -50,6 +53,9 @@ export class TwitchApiService {
       );
   }
 
+  /**
+   * https://dev.twitch.tv/docs/api/reference#get-users-follows
+   */
   private extendUserInfoWithFollower(user: TwitchUser): Observable<TwitchInfo> {
     const params = {
       to_id: user.id,
@@ -80,6 +86,9 @@ export class TwitchApiService {
       );
   }
 
+  /**
+   * https://dev.twitch.tv/docs/authentication#app-access-tokens
+   */
   private getToken(): Observable<TwitchToken> {
     if (this.doesValidTokenAlreadyExist()) {
       return of(this.cachedToken as TwitchToken);

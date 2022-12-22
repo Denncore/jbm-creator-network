@@ -13,7 +13,9 @@ export class TwitterApiService {
   getTwitterUserInfo(userName: string): Observable<TwitterInfo> {
     return this.getUserInfo(userName);
   }
-
+  /**
+   * https://developer.twitter.com/en/docs/twitter-api/users/lookup/quick-start/user-lookup
+   */
   private getUserInfo(userName: string): Observable<TwitterInfo> {
     const url = `${TwitterApiService.BASE_URL}/users/by?usernames=${userName}`;
     return this.httpService
