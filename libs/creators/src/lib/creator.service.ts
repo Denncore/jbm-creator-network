@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TwitchService } from '@jbm-creator-network/api';
+import { TwitchService, TwitterService } from '@jbm-creator-network/api';
 import { Social } from '@jbm-creator-network/ui';
-import { combineLatest, map, Observable, of } from 'rxjs';
+import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { CreatorsEntity } from './+state/creators/creators.models';
 
 const entities: CreatorsEntity[] = [
@@ -102,7 +102,10 @@ const entities: CreatorsEntity[] = [
   providedIn: 'root',
 })
 export class CreatorService {
-  constructor(private twitchService: TwitchService) {}
+  constructor(
+    private twitchService: TwitchService,
+    private twitterService: TwitterService
+  ) {}
 
   getCreators(): Observable<CreatorsEntity[]> {
     return this.extendWithSocialCounts(entities);
@@ -113,7 +116,11 @@ export class CreatorService {
   ): Observable<CreatorsEntity[]> {
     const requests: Observable<CreatorsEntity>[] = [];
     creators.forEach(creator => {
-      requests.push(this.extendWithTwitchIfNecessary(creator));
+      requests.push(
+        this.extendWithTwitchIfNecessary(creator).pipe(
+          switchMap(creator => this.extendWithTwitchIfNecessary(creator))
+        )
+      );
     });
     return combineLatest(requests);
   }
@@ -133,6 +140,27 @@ export class CreatorService {
             ...creator,
             img: twitchInfo.profile_image_url,
             socialCounts: [...creator.socialCounts, twitchCount],
+          };
+        })
+      );
+    }
+    return of(creator);
+  }
+
+  private extendWithTwitterIfNecessary(
+    creator: CreatorsEntity
+  ): Observable<CreatorsEntity> {
+    if (creator.twitter) {
+      return this.twitterService.getChannelInfo(creator.twitter).pipe(
+        map(twitterInfo => {
+          const twitterCount = {
+            count: twitterInfo.followerCount,
+            social: Social.TWITTER,
+          };
+
+          return {
+            ...creator,
+            socialCounts: [...creator.socialCounts, twitterCount],
           };
         })
       );

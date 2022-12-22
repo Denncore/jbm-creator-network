@@ -4,6 +4,11 @@ export interface Environment {
       twitch: {
         clientId: string,
         secret: string
+      },
+      twitter: {
+        apiKey: string,
+        secret: string,
+        bearerToken: string
       }
     }
 }

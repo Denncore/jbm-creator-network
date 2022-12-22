@@ -14,8 +14,6 @@ interface TwitchToken {
   providedIn: 'root',
 })
 export class TwitchService {
-  private cachedToken?: TwitchToken;
-
   constructor(
     @Inject(ENVIRONMENT) public env: Environment,
     private httpClient: HttpClient

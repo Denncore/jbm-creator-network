@@ -7,5 +7,10 @@ export const environment: Environment = {
       clientId: '',
       secret: '',
     },
+    twitter: {
+      apiKey: '',
+      secret: '',
+      bearerToken: '',
+    },
   },
 };
