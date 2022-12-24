@@ -17,3 +17,14 @@ export interface TiktokInfo {
 export interface YoutubeInfo {
   subscriberCount: number;
 }
+export interface ContactEmail {
+  name: string;
+  eMail: string;
+  creatorName: string;
+  message: string;
+  creatorDirectContact: boolean;
+  captcha: string;
+}
+export interface ContactEmailResponse {
+  successful: boolean;
+}

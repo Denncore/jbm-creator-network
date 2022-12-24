@@ -3,6 +3,10 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/nest-jbm/src",
   "projectType": "application",
+  "compilerOptions": {
+    "assets": ["mails/**/*"],
+    "watchAssets": true
+  },
   "targets": {
     "build": {
       "executor": "@nrwl/webpack:webpack",
@@ -13,7 +17,7 @@
         "outputPath": "dist/apps/nest-jbm",
         "main": "apps/nest-jbm/src/main.ts",
         "tsConfig": "apps/nest-jbm/tsconfig.app.json",
-        "assets": ["apps/nest-jbm/src/assets"]
+        "assets": ["apps/nest-jbm/src/assets", "apps/nest-jbm/src/mails"]
       },
       "configurations": {
         "production": {

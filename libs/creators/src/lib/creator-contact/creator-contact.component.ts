@@ -1,6 +1,8 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactEmailService } from '@jbm-creator-network/api';
 import { Environment, ENVIRONMENT } from '@jbm-creator-network/environment';
+import { take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'jbm-creator-network-creator-contact',
@@ -22,9 +24,9 @@ export class CreatorContactComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    @Inject(ENVIRONMENT) public env: Environment
-  ) {
-  }
+    @Inject(ENVIRONMENT) public env: Environment,
+    private contactEmailService: ContactEmailService
+  ) {}
 
   ngOnInit(): void {
     console.log(this.preSelectedCreator);
@@ -37,17 +39,13 @@ export class CreatorContactComponent implements OnInit {
       this.contactForm.controls[formControlName].invalid
     );
   }
-  onVerify(token: string) {
-    // The verification process was successful.
-    // You can verify the token on your server now.
-    console.log(token);
-  }
 
-  onExpired(response: any) {
-    // The verification expired.
-  }
-
-  onError(error: any) {
-    // An error occured during the verification process.
+  sendMail(): void {
+    this.contactEmailService
+      .sendContactEmail(this.contactForm.value)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.contactForm.controls['captcha'].setValue('');
+      });
   }
 }

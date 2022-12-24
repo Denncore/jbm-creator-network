@@ -52,6 +52,6 @@
             [siteKey]="env.hCaptcha.siteKey" formControlName="captcha"></ng-hcaptcha>
 
         <jbm-creator-network-button class="mt-[2rem] lg:mt-[2vw]" [withoutIcon]="true"
-            [disabled]="!contactForm.valid">Senden</jbm-creator-network-button>
+            [disabled]="!contactForm.valid" (click)="sendMail()">Senden</jbm-creator-network-button>
     </form>
 </div>
