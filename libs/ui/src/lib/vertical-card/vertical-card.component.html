@@ -12,8 +12,6 @@
             <ng-template #withoutLink>
                 <img class="rounded-full w-full" [src]="image" />
             </ng-template>
-
-
         </div>
     </div>
 
@@ -24,8 +22,9 @@
         <div [ngClass]="{ 'grid-cols-2': socialCounts.length > 1, 'grid-cols-1': socialCounts.length <= 1}"
             class="grid mt-[10%] gap-x-[10vw] gap-y-[4vw] md:gap-x-[5vw] md:gap-y-[1vw]">
             <div class="flex space-x-[0.5rem] md:space-x-[2vw]" *ngFor="let socialCount of socialCounts">
-                <img class="w-[1.5rem] h-[1.3rem] md:w-[2.5vw] md:h-[3vw] lg:w-[1.5vw] lg:h-[2vw] self-start"
-                    [src]="'/assets/socials/' + socialCount.social + '.svg'" />
+                <a [href]="socialCount.link" target="_blank"><img
+                        class="w-[1.5rem] h-[1.3rem] md:w-[2.5vw] md:h-[3vw] lg:w-[1.5vw] lg:h-[2vw] self-start"
+                        [src]="'/assets/socials/' + socialCount.social + '.svg'" /></a>
                 <span class="text-skin-base md:text-base-md lg:text-base-vw self-start">{{ socialCount.count |
                     socialCount }}</span>
             </div>

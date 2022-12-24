@@ -10,8 +10,8 @@
         <div class="text-skin-highlight md:text-[1.50vw] mt-[2%]">{{tag}}</div>
         <div class="grid grid-cols-2 mt-[10%] gap-x-[1.6vw] gap-y-[1vw]">
             <div class="flex space-x-[0.5rem] md:space-x-[2vw]" *ngFor="let socialCount of socialCounts">
-                <img class="w-[1rem] h-[1.3rem] md:w-[1.3vw] md:h-[1.9vw] self-start"
-                    [src]="'/assets/socials/' + socialCount.social + '.svg'" />
+                <a [href]="socialCount.link" target="_blank"><img class="w-[1rem] h-[1.3rem] md:w-[1.3vw] md:h-[1.9vw] self-start"
+                    [src]="'/assets/socials/' + socialCount.social + '.svg'" /></a>
                 <span class="text-skin-base md:text-[1.40vw] self-start">{{ socialCount.count |
                     socialCount }}</span>
             </div>

@@ -12,6 +12,7 @@ export enum Social {
 export interface SocialCount {
   social: Social;
   count: number;
+  link: string;
 }
 
 @Component({

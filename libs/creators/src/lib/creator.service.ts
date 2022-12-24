@@ -4,7 +4,6 @@ import {
   TwitterService,
   YoutubeService,
 } from '@jbm-creator-network/api';
-import { YoutubeInfo } from '@jbm-creator-network/model';
 import { Social } from '@jbm-creator-network/ui';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { CreatorsEntity } from './+state/creators/creators.models';
@@ -49,7 +48,6 @@ const entities: CreatorsEntity[] = [
     name: 'LizKato',
     email: 'liz_kato@jbm.contact',
     twitch: 'liz_kato',
-    twitter: 'LizKatoArt',
     instagram: 'liz_kato_art',
     tiktok: '@lizkatodesign',
     socialCounts: [],
@@ -139,6 +137,7 @@ export class CreatorService {
           const twitchCount = {
             count: twitchInfo.followerCount,
             social: Social.TWITCH,
+            link: `https://twitch.tv/${creator.twitch}`,
           };
 
           return {
@@ -161,6 +160,7 @@ export class CreatorService {
           const twitterCount = {
             count: twitterInfo.followerCount,
             social: Social.TWITTER,
+            link: `https://twitter.com/${creator.twitter}`,
           };
 
           return {
@@ -178,10 +178,11 @@ export class CreatorService {
   ): Observable<CreatorsEntity> {
     if (creator.youtube) {
       return this.youtubeService.getChannelInfo(creator.youtube).pipe(
-        map(twitterInfo => {
+        map(youtubeInfo => {
           const twitterCount = {
-            count: twitterInfo.subscriberCount,
+            count: youtubeInfo.subscriberCount,
             social: Social.YOUTUBE,
+            link: `https://youtube.com/user/${creator.youtube}`,
           };
 
           return {
