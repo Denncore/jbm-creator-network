@@ -1,0 +1,25 @@
+x-app: &default-app
+  restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+  stop_grace_period: "3s"
+  tty: true
+
+services:
+  jbm-backend:
+    <<: *default-app
+    build:
+      context: "./"
+      dockerfile: backend.Dockerfile
+    container_name: "jbm-backend"
+    ports:
+      - "3333:3333"
+
+  jbm-frontend:
+    <<: *default-app
+    depends_on:
+      - "jbm-backend"
+    build:
+      context: "./"
+      dockerfile: frontend.Dockerfile
+    container_name: "jbm-frontend"
+    ports:
+      - "8080:80"

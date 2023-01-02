@@ -7,7 +7,9 @@
     "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx serve --disable-host-check",
     "start-backend": "nx serve nest-jbm",
-    "build": "nx build",
+    "build": "nx run-many --target=build --projects=ng-jbm,nest-jbm",
+    "build-frontend": "nx build ng-jbm",
+    "build-backend": "nx build nest-jbm",
     "test": "nx test"
   },
   "private": true,
