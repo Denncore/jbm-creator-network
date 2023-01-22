@@ -1,8 +1,8 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactEmailService } from '@jbm-creator-network/api';
-import { Environment, ENVIRONMENT } from '@jbm-creator-network/environment';
-import { take, takeUntil } from 'rxjs';
+import {Component, Inject, Input, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ContactEmailService} from '@jbm-creator-network/api';
+import {Environment, ENVIRONMENT} from '@jbm-creator-network/environment';
+import {take} from 'rxjs';
 
 @Component({
   selector: 'jbm-creator-network-creator-contact',

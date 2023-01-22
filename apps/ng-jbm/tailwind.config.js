@@ -21,10 +21,10 @@ module.exports = {
         'contact-mobile': "url('/assets/pages/contact/background-mobile.svg')",
       },
       fontSize: {
-        'base-vw': '1.20vw',
+        'base-vw': '1vw',
         'base-sm': '0.9rem',
         'base-md': '2vw',
-        'heading-vw': '2vw',
+        'heading-vw': '1.7vw',
         'heading-sm': '1.5rem',
         'heading-md': '3vw',
       },
