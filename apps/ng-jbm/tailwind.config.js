@@ -19,6 +19,8 @@ module.exports = {
         'services-web': "url('/assets/pages/services/background.svg')",
         'contact-web': "url('/assets/pages/contact/background.svg')",
         'contact-mobile': "url('/assets/pages/contact/background-mobile.svg')",
+        'impressum-web': "url('/assets/pages/creators/head-graphic.svg')",
+        'impressum-mobile': "url('/assets/pages/creators/head-graphic.svg')",
       },
       fontSize: {
         'base-vw': '1vw',

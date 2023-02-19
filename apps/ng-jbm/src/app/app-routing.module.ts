@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
@@ -28,6 +28,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./contact-page/contact-page.module').then(
         m => m.ContactPageModule
+      ),
+  },
+  {
+    path: 'impressum',
+    loadChildren: () =>
+      import('./impressum-page/impressum-page.module').then(
+        m => m.ImpressumPageModule
       ),
   },
   {

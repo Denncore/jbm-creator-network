@@ -12,11 +12,11 @@
                     class="w-[3vw] lg:w-5 aspect-square cursor-pointer transition duration-200 hover:scale-105" />
             </a>
         </div>
-        <a
-            class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
-        <a
-            class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Kontakt</a>
-        <a
-            class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Datenschutz</a>
+        <a [routerLink]="'/impressum'"
+           class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
+      <a [routerLink]="'/contact'"
+         class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Kontakt</a>
+      <a [routerLink]="'/data-privacy'"
+         class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Datenschutz</a>
     </div>
 </div>

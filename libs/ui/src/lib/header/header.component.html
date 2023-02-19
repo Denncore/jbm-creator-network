@@ -10,10 +10,10 @@
           }}</a>
       </div>
       <div class="flex flex-col mb-5">
-        <a
-          class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
-        <a
-          class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Datenschutz</a>
+        <a (click)="showMobileMenu = false" [routerLink]="'/impressum'"
+           class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
+        <a (click)="showMobileMenu = false" [routerLink]="'/data-privacy'"
+           class="text-[1.2rem] underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Datenschutz</a>
       </div>
       <div>
         <a href="https://www.twitch.tv/team/jbmcreatornetwork" target="_blank">
