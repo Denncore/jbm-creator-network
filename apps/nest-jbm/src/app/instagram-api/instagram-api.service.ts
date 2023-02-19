@@ -1,7 +1,7 @@
 import {Injectable, Logger} from '@nestjs/common';
 import {HttpService} from "@nestjs/axios";
 import {environment} from "../../environments/environment";
-import {interval, map, Observable, of, take} from "rxjs";
+import {map, Observable, take} from "rxjs";
 import {InstagramInfo, Social} from "@jbm-creator-network/model";
 import {CreatorService} from "../creator/creator.service";
 import {CreatorDocument} from "../creator/creator.document";
@@ -15,22 +15,25 @@ export class InstagramApiService {
   constructor(private readonly httpService: HttpService, private readonly creatorService: CreatorService) {
   }
 
-  updateCreatorWithInstagramInfos(): void {
-    this.creatorService.findCreator({instagramId: {$exists: true}}).then(creators => {
-      creators.forEach(creator => {
-        setTimeout(() => {
-          this.logger.log(`Get Instagram Infos from: ${creator.instagram}`);
-          this.getInstagramInfo(creator.instagram, creator.instagramId).pipe(take(1))
-            .subscribe(this.saveCreatorWithNewInstagramInfos(creator))
-        }, 1000)
-
-      })
+  async updateCreatorWithInstagramInfos(): Promise<void> {
+    return this.creatorService.findCreator({instagramId: {$exists: true}}).then(async creators => {
+      for (const creator of creators) {
+        await this.delay(10000);
+        this.logger.log(`Get Instagram Infos from: ${creator.instagram}`);
+        this.getInstagramInfo(creator.instagram, creator.instagramId).pipe(take(1))
+          .subscribe(this.saveCreatorWithNewInstagramInfos(creator))
+      }
     })
   }
 
+  private async delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  }
+
+
   private saveCreatorWithNewInstagramInfos(creator: CreatorDocument) {
     return instagramInfos => {
-      let existingSocialCount = creator.socialCounts.find((socialCount) => socialCount.social);
+      let existingSocialCount = creator.socialCounts.find((socialCount) => socialCount.social === Social.INSTAGRAM);
       if (!existingSocialCount) {
         creator.socialCounts.push({
           social: Social.INSTAGRAM,
@@ -51,7 +54,6 @@ export class InstagramApiService {
       'X-RapidAPI-Key': environment.api.instagram.rapidApiKey,
       'X-RapidAPI-Host': environment.api.instagram.rapidApiHost
     }
-    this.logger.log(`${InstagramApiService.BASE_URL}/user/${userId}/info`)
     return this.httpService.post(`${InstagramApiService.BASE_URL}/user/get_info_by_id`, {id: userId}, {headers})
       .pipe(
         map(resp => resp.data?.response?.body?.user),
@@ -61,18 +63,5 @@ export class InstagramApiService {
           return instagramInfo
         })
       );
-  }
-
-  private rateLimitIsExceeded() {
-    return () => {
-      let delayObservable$;
-      if (this.currentRequestCount === environment.api.instagram.requestRateLimitPerMinute) {
-        delayObservable$ = interval(60000);
-      } else {
-        delayObservable$ = of(undefined);
-      }
-      this.currentRequestCount = 0;
-      return delayObservable$;
-    };
   }
 }

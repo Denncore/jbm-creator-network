@@ -32,7 +32,10 @@ export interface Environment {
     instagram: {
       rapidApiKey: string;
       rapidApiHost: string;
-      requestRateLimitPerMinute: number;
+    },
+    tiktok: {
+      rapidApiKey: string;
+      rapidApiHost: string;
     }
   }
 }

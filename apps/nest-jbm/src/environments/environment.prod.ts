@@ -34,7 +34,10 @@ export const environment: Environment = {
     instagram: {
       rapidApiKey: '',
       rapidApiHost: '',
-      requestRateLimitPerMinute: 0
+    },
+    tiktok: {
+      rapidApiKey: '',
+      rapidApiHost: '',
     }
   },
 };

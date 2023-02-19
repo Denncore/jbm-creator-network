@@ -18,6 +18,7 @@ import {CreatorService} from "./creator/creator.service";
 import {CreatorController} from "./creator/creator.controller";
 import {TaskSchedulerService} from "./task-scheduler.service";
 import {CreatorSocialsService} from "./creator/creator-socials.service";
+import {TiktokApiService} from "./tiktok-api/tiktok-api.service";
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import {CreatorSocialsService} from "./creator/creator-socials.service";
     TwitterApiService,
     YoutubeApiService,
     InstagramApiService,
+    TiktokApiService,
     TaskSchedulerService,
     ContactService,
     CaptchaService,

@@ -52,4 +52,5 @@ the plan of those APIs and change this to be more realtime. But this requires co
 Currently used RapidAPIs:
 
 * Instagram: https://rapidapi.com/rocketapi/api/rocketapi-for-instagram/
-* TikTok:
+*
+TikTok: https://rapidapi.com/zetreex-group-zetreex-group-default/api/tiktok-unauthorized-api-scraper-no-watermark-analytics-feed/

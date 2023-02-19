@@ -12,7 +12,7 @@ export interface FacebookInfo {
   followerCount: number;
 }
 export interface TiktokInfo {
-  subscriberCount: number;
+  followerCount: number;
 }
 export interface YoutubeInfo {
   subscriberCount: number;
