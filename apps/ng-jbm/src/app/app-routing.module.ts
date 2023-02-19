@@ -38,6 +38,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'data-privacy',
+    loadChildren: () =>
+      import('./data-privacy-page/data-privacy-page.module').then(
+        m => m.DataPrivacyPageModule
+      ),
+  },
+  {
     path: '',
     redirectTo: 'start',
     pathMatch: 'full',
