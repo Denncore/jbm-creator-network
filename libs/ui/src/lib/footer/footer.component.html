@@ -5,15 +5,16 @@
     </p>
     <div class="flex justify-between lg:justify-end text-[2.8vw] md:text-[2vw] lg:text-base lg:space-x-[5vw]">
         <div class="order-last lg:order-first flex space-x-[5vw] lg:space-x-[1vw]">
-            <a href="https://www.twitch.tv/team/jbmcreatornetwork" target="_blank"><img src="/assets/socials/twitch.svg"
-                    class="w-[3vw] lg:w-5 aspect-square cursor-pointer transition duration-200 hover:scale-105" /> </a>
-            <a href="" target="_blank">
-                <img src="/assets/socials/instagram.svg"
-                    class="w-[3vw] lg:w-5 aspect-square cursor-pointer transition duration-200 hover:scale-105" />
-            </a>
+          <a href="https://www.twitch.tv/team/jbmcreatornetwork" target="_blank">
+            <img [src]="'/assets/socials/' + (darkSocialButtons ? 'twitch-dark.svg' : 'twitch.svg')"
+                 class="w-[3vw] lg:w-5 aspect-square cursor-pointer transition duration-200 hover:scale-105"/> </a>
+          <a href="" target="_blank">
+            <img [src]="'/assets/socials/' + (darkSocialButtons ? 'instagram-dark.svg' : 'instagram.svg')"
+                 class="w-[3vw] lg:w-5 aspect-square cursor-pointer transition duration-200 hover:scale-105"/>
+          </a>
         </div>
-        <a [routerLink]="'/impressum'"
-           class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
+      <a [routerLink]="'/impressum'"
+         class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Impressum</a>
       <a [routerLink]="'/contact'"
          class="underline cursor-pointer hover:text-skin-highlight transition duration-200 hover:scale-105">Kontakt</a>
       <a [routerLink]="'/data-privacy'"
