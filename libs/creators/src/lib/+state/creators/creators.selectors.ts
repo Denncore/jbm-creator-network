@@ -1,16 +1,12 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { CreatorsEntity } from './creators.models';
-import {
-  CREATORS_FEATURE_KEY,
-  CreatorsState,
-  creatorsAdapter,
-} from './creators.reducer';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {CREATORS_FEATURE_KEY, creatorsAdapter, CreatorsState,} from './creators.reducer';
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 // Lookup the 'Creators' feature state managed by NgRx
 export const selectCreatorsState =
   createFeatureSelector<CreatorsState>(CREATORS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = creatorsAdapter.getSelectors();
+const {selectAll, selectEntities} = creatorsAdapter.getSelectors();
 
 export const selectAllCreators = createSelector(selectCreatorsState, selectAll);
 export const selectFirstCreators = (n: number) =>

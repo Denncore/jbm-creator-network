@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
-import {
-  CreatorsEntity,
-  CreatorsState,
-  selectCreator,
-} from '@jbm-creator-network/creators';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
+import {Component} from '@angular/core';
+import {Observable, switchMap} from 'rxjs';
+import {CreatorsState, selectCreator,} from '@jbm-creator-network/creators';
+import {ActivatedRoute} from '@angular/router';
+import {Store} from '@ngrx/store';
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 @Component({
   selector: 'jbm-creator-network-creator-impressum',
@@ -15,6 +12,7 @@ import { Store } from '@ngrx/store';
 })
 export class CreatorImpressumComponent {
   creator$?: Observable<CreatorsEntity | undefined>;
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<CreatorsState>

@@ -1,0 +1,82 @@
+db.creators.insertMany([
+  {
+    "_id": {"$oid": "63f2267942a8214435867449"},
+    "description": "About me: Ich heiße Yuh und ich erstelle Zeugs von fragwürdiger Qualität. Die meiste Zeit gehts hier um kreatives Gedöns, aber manchmal gibts hier auch etwas Gaming.\nOftmals habe ich nicht wirklich eine Ahnung was ich tue and dafür möchte ich mich entschuldigen. x(\nMeistens Doodlen, machmal 3D + VFX und seltener : Shader-Programme schreiben.\n\nIch mag das Thema \"Jahreszeiten\" sehr gerne, daher wird viel von meinem Zeugs um Natur, Szenerien und ein wenig um dieses bezaubernde Gefühl während einer Jahreszeit handeln.\n\nWenn ich zocke/game, dann spiele ich aktuell gerne Overwatch. Ebenso spiele ich gerne Community-Games wie Quiplash, Skribbl.io und so weiter.\nUnd natürlich Beat Saber.\n\nDeviantArt: https://www.deviantart.com/juh-juh\n",
+    "email": "hatschyuh@jbm.contact",
+    "id": "@hatschyuh",
+    "instagram": "HatschYuh",
+    "instagramId": "8338197875",
+    "name": "HatschYuh",
+    "socialCounts": [
+      {
+        "social": "instagram",
+        "link": "https://www.instagram.com/HatschYuh",
+        "count": 2106
+      }
+    ],
+    "twitch": "hatschyuh",
+    "twitter": "HatschYuh"
+  },
+  {
+    "_id": {"$oid": "63f2267942a821443586744b"},
+    "description": "About me: Olaaa, ich bin Doky aka. Maxi, Streamer und Entertainer aus Leidenschaft. Ich liebe zocken, Kaffee und gemütliche Gesprächsrunden, über Themen aller Art. Ich bin ein junger Gott in quasi jedem Spiel, vor allem in dem, das sich \"Leben\" nennt (hugh Kappa). Ich bin 26 Jahre alt, ca. 1,78 groß und esse gerne Kräuterbaguette!\nMein Content besteht hauptsächlich aus Just Chatting und verschiedenen Games, worauf wir eben gerade Lust haben. Dabei liegt mein Fokus auf der Interaktion mit meinen Zuschauern. Mein Kanal soll einen Ort bieten, an dem sich jeder willkommen fühlt, sich untereinander geholfen wird und man die eventuell doofe Realität für einen Moment vergessen kann.\nAuf Twitch findet man meinen Hauptcontent, dort bin ich am aktivsten. Den Rest betreibe ich nebenbei, sofern ich Zeit dafür habe. Auf YouTube werde ich immer mal wieder ein paar Highlights aus den Stream hochladen und auf TikTok/Instagram gibt es Clips, die einen bespaßen können.\nLinks: https://truedoky.de/socials\n(Twitch, YouTube, Instagram, TikTok, Twitter)",
+    "email": "truedoky@jbm.contact",
+    "id": "@truedoky",
+    "instagram": "maxi.doky",
+    "instagramId": "990257197",
+    "name": "TrueDoky",
+    "socialCounts": [],
+    "twitch": "truedoky",
+    "twitter": "xDoky",
+    "tiktok": "@maxi.doky?"
+  },
+  {
+    "_id": {"$oid": "63f2267942a821443586744c"},
+    "description": "",
+    "email": "liz_kato@jbm.contact",
+    "id": "@liz_kato",
+    "instagram": "liz_kato_art",
+    "instagramId": "528020054",
+    "name": "LizKato",
+    "socialCounts": [],
+    "twitch": "liz_kato",
+    "tiktok": "@lizkatodesign"
+  },
+  {
+    "_id": {"$oid": "63f2267942a821443586744e"},
+    "description": "About me: Heeeey! Ich bin die Mimi und ich bin auch dabei! :D\nAuf vielen Plattformen bin ich bekannt als die „MimiMaid“\nIch bin eine deutsche „Maid – vTuberin“ und mache hauptsächlich Content mit meinem virtuellen Avatar.\nHabe nebenbei eine leicht sarkastische Ader und bin unglaublich direkt. Auf den ersten Blick kann ich deswegen sehr unfreundlich wirken.\nTrotzdem bin ich überall mit ganzem Herzen dabei und versuche die Menschen um mich herum zum Lachen zu bringen!\nAußerdem LIEBE ich das Singen!\nInteressiert?\nDann besucht mich auf Twitter, Twitch oder YouTube!\n\nLinks:\nTikTok: https://www.tiktok.com/@mimimaid\n",
+    "email": "mimimaid@jbm.contact",
+    "id": "@mimimaid",
+    "instagram": "mimi.maid",
+    "instagramId": "52877530335",
+    "name": "MimiMaid",
+    "socialCounts": [],
+    "twitch": "mimimaid",
+    "twitter": "MimiMaid",
+    "tiktok": "@mimimaid"
+  },
+  {
+    "_id": {"$oid": "63f2267942a8214435867450"},
+    "description": "",
+    "email": "schokoevi@jbm.contact",
+    "id": "@schokoevi",
+    "instagram": "evelyn.nfld",
+    "instagramId": "790629625",
+    "name": "SchokoEvi",
+    "socialCounts": [],
+    "twitch": "schokoevi",
+    "twitter": "SchokoEvi"
+  },
+  {
+    "_id": {"$oid": "63f2267942a8214435867451"},
+    "description": "About me: Ich bin Lurnara, bekannt von dem Account @thewritersgarden auf Instagram. Seit 3 Jahren teile ich dort mit nun knapp über 100.000 Followern meine Liebe zum Schreiben und Lesen, aber auch anderen kreativen Inhalten. Angefangen hat das Ganze, weil ich hilfreiche Tipps und unterhaltsame Beiträge über diese Themen geteilt habe. Mittlerweile poste ich viel über meine eigenen Erfahrungen und über Dinge, die ich anregend finde, oder ich auf meiner Reise als kreativer Creator und Writer gelernt habe.\n",
+    "email": "lurnara@jbm.contact",
+    "id": "@lurnara",
+    "instagram": "thewritersgarden",
+    "instagramId": "8334427703",
+    "name": "lurnara",
+    "socialCounts": [],
+    "twitch": "lurnara",
+    "twitter": "lurnaracaden"
+  }
+]);

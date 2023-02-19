@@ -1,4 +1,4 @@
-import { Environment } from './environment.interface';
+import {Environment} from './environment.interface';
 
 export const environment: Environment = {
   production: true,
@@ -11,6 +11,10 @@ export const environment: Environment = {
     url: '',
     username: '',
     password: '',
+  },
+  mongo: {
+    connection: '',
+    dbName: ''
   },
   api: {
     twitch: {
@@ -27,5 +31,10 @@ export const environment: Environment = {
       clientId: '',
       secret: '',
     },
+    instagram: {
+      rapidApiKey: '',
+      rapidApiHost: '',
+      requestRateLimitPerMinute: 0
+    }
   },
 };

@@ -1,14 +1,15 @@
-import { HttpService } from '@nestjs/axios';
-import { Injectable, Logger } from '@nestjs/common';
-import { catchError, map, Observable, of, switchMap } from 'rxjs';
-import { environment } from '../../environments/environment';
-import { TwitchInfo } from '@jbm-creator-network/model';
+import {HttpService} from '@nestjs/axios';
+import {Injectable, Logger} from '@nestjs/common';
+import {catchError, map, Observable, of, switchMap} from 'rxjs';
+import {environment} from '../../environments/environment';
+import {TwitchInfo} from '@jbm-creator-network/model';
 
 interface TwitchToken {
   access_token: string;
   expires_in: string;
   token_type: string;
 }
+
 interface TwitchUser {
   id: string;
   profile_image_url: string;

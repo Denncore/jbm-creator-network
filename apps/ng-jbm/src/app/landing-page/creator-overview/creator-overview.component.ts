@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
-import {
-  CreatorsEntity,
-  CreatorsState,
-  selectFirstCreators,
-} from '@jbm-creator-network/creators';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import {Component} from '@angular/core';
+import {CreatorsState, selectFirstCreators,} from '@jbm-creator-network/creators';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 @Component({
   selector: 'jbm-creator-network-creator-overview',

@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { SocialCount } from '../card/card.component';
+import {Component, Input} from '@angular/core';
+import {SocialCount} from "@jbm-creator-network/model";
 
 @Component({
   selector: 'jbm-creator-network-vertical-card',

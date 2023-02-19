@@ -1,8 +1,8 @@
-import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import { createReducer, on, Action } from '@ngrx/store';
+import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
+import {Action, createReducer, on} from '@ngrx/store';
 
 import * as CreatorsActions from './creators.actions';
-import { CreatorsEntity } from './creators.models';
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 export const CREATORS_FEATURE_KEY = 'creators';
 

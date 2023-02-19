@@ -1,9 +1,9 @@
-import { inject, Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
-import { CreatorService } from '../../creator.service';
+import {inject, Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {catchError, map, of, switchMap} from 'rxjs';
 
 import * as CreatorsActions from './creators.actions';
+import {CreatorService} from "@jbm-creator-network/api";
 
 @Injectable()
 export class CreatorsEffects {
@@ -14,11 +14,11 @@ export class CreatorsEffects {
       ofType(CreatorsActions.initCreators),
       switchMap(() => {
         return this.creatorService.getCreators().pipe(
-          map(entities => {
-            return CreatorsActions.loadCreatorsSuccess({ creators: entities });
+          map(creators => {
+            return CreatorsActions.loadCreatorsSuccess({creators});
           }),
           catchError(error =>
-            of(CreatorsActions.loadCreatorsFailure({ error }))
+            of(CreatorsActions.loadCreatorsFailure({error}))
           )
         );
       })

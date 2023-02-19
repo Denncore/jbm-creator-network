@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { TwitchService } from '@jbm-creator-network/api';
+import {Component} from '@angular/core';
+import {CreatorService} from '@jbm-creator-network/api';
 import * as CreatorsActions from '@jbm-creator-network/creators';
-import {
-  CreatorsState,
-  selectAllCreators,
-} from '@jbm-creator-network/creators';
-import { HeaderAutocompleteEntry, HeaderEntry } from '@jbm-creator-network/ui';
-import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
+import {CreatorsState, selectAllCreators} from '@jbm-creator-network/creators';
+import {HeaderAutocompleteEntry, HeaderEntry} from '@jbm-creator-network/ui';
+import {Store} from '@ngrx/store';
+import {map, Observable} from 'rxjs';
 
 @Component({
   selector: 'jbm-creator-network-root',
@@ -17,7 +14,7 @@ import { map, Observable } from 'rxjs';
 export class AppComponent {
   title = 'ng-jbm';
   headerEntries: HeaderEntry[] = [
-    { name: 'HOME', link: '/start' },
+    {name: 'HOME', link: '/start'},
     { name: 'CREATOR', link: '/creator' },
     { name: 'KONTAKT', link: '/contact' },
   ];
@@ -25,7 +22,7 @@ export class AppComponent {
 
   constructor(
     private store: Store<CreatorsState>,
-    private twitchService: TwitchService
+    private twitchService: CreatorService
   ) {
     this.store.dispatch(CreatorsActions.initCreators());
     this.autoCompleteEntities$ = this.store.select(selectAllCreators).pipe(

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Observable, switchMap} from "rxjs";
-import {CreatorsEntity, CreatorsState, selectCreator, selectEntity} from "@jbm-creator-network/creators";
+import {CreatorsState, selectCreator} from "@jbm-creator-network/creators";
 import {Store} from "@ngrx/store";
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 @Component({
   selector: 'jbm-creator-network-creator-detail',

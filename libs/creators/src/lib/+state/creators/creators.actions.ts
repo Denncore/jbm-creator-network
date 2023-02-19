@@ -1,5 +1,5 @@
-import { createAction, props } from '@ngrx/store';
-import { CreatorsEntity } from './creators.models';
+import {createAction, props} from '@ngrx/store';
+import {CreatorsEntity} from "@jbm-creator-network/model";
 
 export const initCreators = createAction('[Creators Page] Init');
 
