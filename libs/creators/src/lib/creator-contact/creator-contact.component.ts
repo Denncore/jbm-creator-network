@@ -15,7 +15,7 @@ export class CreatorContactComponent implements OnInit {
   contactForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     eMail: ['', [Validators.required, Validators.email]],
-    creatorName: ['', [Validators.required, Validators.minLength(3)]],
+    creatorName: ['', [Validators.minLength(3)]],
     message: ['', [Validators.required]],
     creatorDirectContact: [false],
     tosAccepted: [false, [Validators.requiredTrue]],
